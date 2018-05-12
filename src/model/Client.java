@@ -9,6 +9,9 @@ public class Client extends Person implements Serializable{
 	
 	public Client() {
 		super();
+		
+		EmergencyPerson = "";
+		
 	}
 
 

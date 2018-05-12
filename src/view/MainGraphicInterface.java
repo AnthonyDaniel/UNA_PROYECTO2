@@ -116,7 +116,7 @@ public class MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent arg0) {
 			
-				
+				subG.setVisible(true);
 				graphic.add(subG).repaint();
 				graphic.remove(subG2);
 				graphic.remove(subG3);	
@@ -134,7 +134,7 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 
-				
+				subG2.setVisible(true);
 				graphic.add(subG2).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG3);	
@@ -152,6 +152,7 @@ public class MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
+				subG3.setVisible(true);
 				graphic.add(subG3).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG2);	
@@ -168,6 +169,7 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 				
+				subG4.setVisible(true);
 				graphic.add(subG4).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG2);	
@@ -184,6 +186,7 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 				
+				subG5.setVisible(true);
 				graphic.add(subG5).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG2);	
@@ -200,6 +203,7 @@ public class MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
+				subG6.setVisible(true);
 				graphic.add(subG6).repaint();
 				graphic.remove(subG2);
 				graphic.remove(subG3);	

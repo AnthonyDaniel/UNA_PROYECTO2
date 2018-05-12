@@ -1,16 +1,17 @@
 package model;
 
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class CustomerAdministration extends CustomerAdministrationFile implements CustomerAdministrationInterface {
+public class CustomerAdministration  extends CustomerAdministrationFile implements CustomerAdministrationInterface {
 
-	private ArrayList<Client> cClient;
+	private ArrayList<Client> cClient = new ArrayList<Client>(); 
 	
 	public CustomerAdministration() {
+
 		super();
 		
-	
 		try {
 			cClient = this.read();
 		} catch (FileNotFoundException e) {
@@ -43,9 +44,10 @@ public class CustomerAdministration extends CustomerAdministrationFile implement
 		
 		
 		if(!exist(e.getId())) {
-			cClient.add(e);
-			this.write(cClient);
-			return true;	
+		
+			 cClient.add(e);
+			 this.write(cClient);
+			 return true;
 		}else {
 			return false;
 		}

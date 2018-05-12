@@ -13,7 +13,13 @@ public class Person {
 		private Date dateBirth;
 		
 		public Person() {
-			
+			id = "";
+			name = "";
+			lastName = "";
+			phone = "";
+			email = "";
+			address = "";
+			dateBirth =null;
 		}
 
 		public String getId() {
