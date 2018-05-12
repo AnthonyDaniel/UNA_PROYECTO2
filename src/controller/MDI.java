@@ -19,11 +19,12 @@ public class MDI {
 		
 		u.main();
 		
+	}
+	
+	private void subG() {
 		
 		
 		
 	}
-	
-	
 	
 }

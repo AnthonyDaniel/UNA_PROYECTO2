@@ -255,7 +255,50 @@ public class MainGraphicInterface {
 		subG.add(b4);
 		subG.add(b5);
 		
-	
+		b1.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b2.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b3.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b4.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b5.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
 		
 		subG.setVisible(true);
 		
@@ -289,6 +332,94 @@ private void medicalAdministration() {
 		b5.setBounds(10, 250, 100, 40);
 	
 		
+		b1.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b2.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b3.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b4.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b5.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});		b1.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b2.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b3.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b4.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
+		b5.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				
+			}
+		});
+		
 		subG2.add(b1);
 		subG2.add(b2);
 		subG2.add(b3);
@@ -319,6 +450,32 @@ private void medicalAdministration() {
 			b3.setBounds(10, 130, 100, 40);
 			b5.setBounds(10, 250, 100, 40);
 		
+			b1.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b3.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b5.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
 			
 			subG3.add(b1);
 			subG3.add(b3);
@@ -354,6 +511,50 @@ private void medicalAdministration() {
 			b4.setBounds(10, 190, 100, 40);
 			b5.setBounds(10, 250, 100, 40);
 		
+			b1.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b2.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b3.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b4.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b5.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
 			
 			subG4.add(b1);
 			subG4.add(b2);
@@ -388,7 +589,51 @@ private void medicalAdministration() {
 			b3.setBounds(10, 130, 100, 40);
 			b4.setBounds(10, 190, 100, 40);
 			b5.setBounds(10, 250, 100, 40);
-		
+
+			b1.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b2.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b3.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b4.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
+			
+			b5.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+				
+					
+				}
+			});
 			
 			subG5.add(b1);
 			subG5.add(b2);
