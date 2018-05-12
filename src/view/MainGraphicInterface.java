@@ -9,11 +9,14 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class MainGraphicInterface {
 
@@ -21,6 +24,8 @@ public class MainGraphicInterface {
     private File imagenFile; // route 
     private Image newImagen; // icon of Jframe
 	private Font font; 
+	private JPanel subG;
+	
     
 	public MainGraphicInterface() {
 		
@@ -45,7 +50,7 @@ public class MainGraphicInterface {
 		graphic.setTitle("Clinic");
 		graphic.setResizable(false);
 		graphic.setLayout(null);
-		graphic.setSize(630, 450);
+		graphic.setSize(850, 450);
 		graphic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		graphic.setLocationRelativeTo(null);
 		
@@ -71,7 +76,7 @@ public class MainGraphicInterface {
 		b4.setBounds(10, 190, 300, 40);
 		b5.setBounds(10, 250, 300, 40);
 		b6.setBounds(10, 310, 300, 40);
-		b7.setBounds(315, 370, 300, 40);
+		b7.setBounds(10, 370, 300, 40);
 
 		// b1.setOpaque(false);
 		// b2.setBorder(null);
@@ -85,13 +90,20 @@ public class MainGraphicInterface {
 		graphic.add(b7);		
 
 		JLabel background = new JLabel();
-		ImageIcon icon = new ImageIcon("src/FondoClinica.jpg");
-		background.setBounds(0, 0, 650, 450);
+		ImageIcon icon = new ImageIcon("src/fondo.png");
+		background.setBounds(0, 0, 850, 450);
 		background.setIcon(icon);
 		graphic.add(background);
+	
+
+		
+		
 		
 		graphic.repaint();
 		graphic.setVisible(true);
+
+		
+	
 		
 		
 		b1.addActionListener(new ActionListener() {
@@ -100,6 +112,13 @@ public class MainGraphicInterface {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				
+				if(panelOpen(medicalAdministration())) {
+					medicalAdministration().setVisible(false);
+					graphic.add(customerAdministration()).repaint();
+				}else {
+					graphic.add(customerAdministration()).repaint();
+				}
+				
 			}
 		});;
 		
@@ -107,8 +126,14 @@ public class MainGraphicInterface {
 			
 		
 			public void actionPerformed(ActionEvent arg0) {
+
 				
-				
+				if(panelOpen(customerAdministration())) {
+					customerAdministration().setVisible(false);
+					graphic.add(medicalAdministration()).repaint();
+				}else {
+					graphic.add(medicalAdministration()).repaint();
+				}
 			}
 		});;
 		
@@ -116,6 +141,7 @@ public class MainGraphicInterface {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
+				
 				
 				
 			}
@@ -154,12 +180,101 @@ public class MainGraphicInterface {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				
-				JOptionPane.showMessageDialog(b7, Color.WHITE, "Thanks for using our program", 0);
+				JOptionPane.showMessageDialog( null,"Thanks for using our program");
 				System.exit(0);
 				
 				
 			}
 		});;
+
+
+		
+	}
+	
+	private JPanel customerAdministration() {
+		
+		subG = new JPanel();
+		subG.setLayout(null);
+		subG.setBackground(Color.white);
+		subG.setBounds(320, 10, 515, 400);
+		
+		JButton b1 = new JButton("Add");
+		JButton b2 = new JButton("Search");
+		JButton b3 = new JButton("Modify");
+		JButton b4 = new JButton("Remove");
+		JButton b5 = new JButton("List");
+	
+		b1.setBackground(Color.BLUE);
+		b2.setBackground(Color.white);
+		b3.setBackground(Color.white);
+		b4.setBackground(Color.white);
+		b5.setBackground(Color.white);
+
+		b1.setBounds(10, 10, 100, 40);
+		b2.setBounds(10, 70, 100, 40);
+		b3.setBounds(10, 130, 100, 40);
+		b4.setBounds(10, 190, 100, 40);
+		b5.setBounds(10, 250, 100, 40);
+	
+		
+		subG.add(b1);
+		subG.add(b2);
+		subG.add(b3);
+		subG.add(b4);
+		subG.add(b5);
+		
+		subG.setVisible(true);
+		
+		return subG;
+	}
+	
+private JPanel medicalAdministration() {
+		
+		subG = new JPanel();
+		subG.setLayout(null);
+		subG.setBackground(Color.pink);
+		subG.setBounds(320, 10, 515, 400);
+		
+		JButton b1 = new JButton("Adfdd");
+		JButton b2 = new JButton("Seadfrch");
+		JButton b3 = new JButton("Modfdify");
+		JButton b4 = new JButton("Remdfove");
+		JButton b5 = new JButton("List");
+	
+		b1.setBackground(Color.white);
+		b2.setBackground(Color.white);
+		b3.setBackground(Color.white);
+		b4.setBackground(Color.white);
+		b5.setBackground(Color.white);
+
+		b1.setBounds(10, 10, 100, 40);
+		b2.setBounds(10, 70, 100, 40);
+		b3.setBounds(10, 130, 100, 40);
+		b4.setBounds(10, 190, 100, 40);
+		b5.setBounds(10, 250, 100, 40);
+	
+		
+		subG.add(b1);
+		subG.add(b2);
+		subG.add(b3);
+		subG.add(b4);
+		subG.add(b5);
+		
+		
+		return subG;
+		
+		
+	}
+	
+	private boolean panelOpen(JPanel i) {
+		
+		boolean open = false;
+		
+		if(i.isVisible()) {
+			open =  true;
+		}
+		
+		return open;
 	}
 	
 }
