@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CustomerAdministration  extends CustomerAdministrationFile implements CustomerAdministrationInterface {
 
-	private ArrayList<Client> cClient = new ArrayList<Client>(); 
+	private ArrayList<Client> cClient; 
 	
 	public CustomerAdministration() {
 
@@ -130,12 +130,8 @@ public class CustomerAdministration  extends CustomerAdministrationFile implemen
 
 	public ArrayList<Client> container() {
 		
-		if(!cClient.isEmpty()) {
 			return cClient;
-		}else {
-			return null;
-		}
-		
+
 	}
 	
 }

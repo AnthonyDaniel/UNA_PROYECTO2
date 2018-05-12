@@ -21,7 +21,7 @@ public class CustomerAdministrationFile {
 		ObjectOutputStream departure;
 		
 		try {
-			departure = new ObjectOutputStream(new FileOutputStream("Client.XML"));
+			departure = new ObjectOutputStream(new FileOutputStream("Client.txt"));
 			
 			for(int i = 0; i<list.size(); i++) {
 				
@@ -48,7 +48,7 @@ public class CustomerAdministrationFile {
 		
 		try {
 			
-			entry = new ObjectInputStream(new FileInputStream("Client.XML"));
+			entry = new ObjectInputStream(new FileInputStream("Client.txt"));
 			
 			if(entry!=null) {
 				
