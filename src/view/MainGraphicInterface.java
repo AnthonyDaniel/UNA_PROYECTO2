@@ -9,14 +9,12 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 public class MainGraphicInterface {
 
@@ -34,7 +32,7 @@ public class MainGraphicInterface {
 	public MainGraphicInterface() {
 		
 		imagenFile = new File("src/icon.PNG");
-		font = new Font("Calibri",3,20); 
+		font = new Font("Calibri",9,13); 
 		subG = new JPanel();
 		subG2 = new JPanel();
 		subG3 = new JPanel();
@@ -71,6 +69,14 @@ public class MainGraphicInterface {
 		JButton b5 = new JButton("Service billing");
 		JButton b6 = new JButton("About.....");
 		JButton b7 = new JButton("Get Out");
+		
+		b1.setFont(font);
+		b2.setFont(font);
+		b3.setFont(font);
+		b4.setFont(font);
+		b5.setFont(font);
+		b6.setFont(font);
+		b7.setFont(font);
 		
 		b1.setBackground(Color.white);
 		b2.setBackground(Color.white);
@@ -224,7 +230,7 @@ public class MainGraphicInterface {
 		
 	}
 	
-	private void customerAdministration() {
+	public void customerAdministration() {
 		
 		
 		subG.setLayout(null);
@@ -236,7 +242,13 @@ public class MainGraphicInterface {
 		JButton b3 = new JButton("Modify");
 		JButton b4 = new JButton("Remove");
 		JButton b5 = new JButton("List");
-	
+
+		b1.setFont(font);
+		b2.setFont(font);
+		b3.setFont(font);
+		b4.setFont(font);
+		b5.setFont(font);
+		
 		b1.setBackground(Color.white);
 		b2.setBackground(Color.white);
 		b3.setBackground(Color.white);
@@ -260,6 +272,7 @@ public class MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent e) {
 			
+				
 				
 			}
 		});
@@ -307,7 +320,7 @@ public class MainGraphicInterface {
 	
 	}
 	
-private void medicalAdministration() {
+public void medicalAdministration() {
 	
 		subG2.setLayout(null);
 		subG2.setBackground(Color.GRAY);
@@ -319,6 +332,12 @@ private void medicalAdministration() {
 		JButton b4 = new JButton("Remove");
 		JButton b5 = new JButton("List");
 	
+		b1.setFont(font);
+		b2.setFont(font);
+		b3.setFont(font);
+		b4.setFont(font);
+		b5.setFont(font);
+		
 		b1.setBackground(Color.white);
 		b2.setBackground(Color.white);
 		b3.setBackground(Color.white);
@@ -375,7 +394,9 @@ private void medicalAdministration() {
 			
 				
 			}
-		});		b1.addActionListener(new ActionListener() {
+		});	
+		
+		b1.addActionListener(new ActionListener() {
 			
 			
 			public void actionPerformed(ActionEvent e) {
@@ -432,7 +453,7 @@ private void medicalAdministration() {
 		
 	}
 	
-	 private void medicalServicesAdministration() {
+	 public void medicalServicesAdministration() {
 		 
 		 	subG3.setLayout(null);
 			subG3.setBackground(Color.GRAY);
@@ -442,6 +463,10 @@ private void medicalAdministration() {
 			JButton b3 = new JButton("Modify");;
 			JButton b5 = new JButton("List");
 		
+			b1.setFont(font);
+			b3.setFont(font);
+			b5.setFont(font);
+			
 			b1.setBackground(Color.white);
 			b3.setBackground(Color.white);
 			b5.setBackground(Color.white);
@@ -499,6 +524,14 @@ private void medicalAdministration() {
 			JButton b4 = new JButton("Developing");
 			JButton b5 = new JButton("Developing");
 		
+
+			
+			b1.setFont(font);
+			b2.setFont(font);
+			b3.setFont(font);
+			b4.setFont(font);
+			b5.setFont(font);
+			
 			b1.setBackground(Color.white);
 			b2.setBackground(Color.white);
 			b3.setBackground(Color.white);
@@ -578,6 +611,12 @@ private void medicalAdministration() {
 			JButton b4 = new JButton("Developing");
 			JButton b5 = new JButton("Developing");
 		
+			b1.setFont(font);
+			b2.setFont(font);
+			b3.setFont(font);
+			b4.setFont(font);
+			b5.setFont(font);
+			
 			b1.setBackground(Color.white);
 			b2.setBackground(Color.white);
 			b3.setBackground(Color.white);
