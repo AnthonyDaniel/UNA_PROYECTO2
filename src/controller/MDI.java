@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
+import model.Client;
 import model.CustomerAdministration;
 import model.CustomerAdministrationInterface;
 import view.MainGraphicInterface;
@@ -52,9 +54,12 @@ public class MDI extends MainGraphicInterface {
 	
 	
 	public JPanel customerAdministration() {
+
+		Client aux = new Client();;
+		
 		subG = new JPanel();
 		subG.setLayout(null);
-		subG.setBackground(Color.GRAY);
+		subG.setBackground(Color.LIGHT_GRAY);
 		subG.setBounds(320, 10, 515, 400);
 		
 		JButton b1 = new JButton("Add");
@@ -87,11 +92,44 @@ public class MDI extends MainGraphicInterface {
 		subG.add(b4);
 		subG.add(b5);
 		
+	
+		
 		b1.addActionListener(new ActionListener() {
 			
 			
 			public void actionPerformed(ActionEvent e) {
 			
+				JLabel id = new JLabel("ID:");  	 		JTextArea id_ = new JTextArea();    		
+				id.setLayout(null);					 		id_.setLayout(null); 						
+				id.setBounds(150, 10, 40, 40);		 		id_.setBounds(200, 15, 100, 30); 			
+				subG.add(id).repaint();				 		subG.add(id_).repaint(); 				
+
+				JLabel name= new JLabel("Name:");  			 JTextArea name_ = new JTextArea();
+				name.setLayout(null);						 name_.setLayout(null);
+				name.setBounds(340, 10, 40, 40);			 name_.setBounds(390, 15, 100, 30);
+				subG.add(name).repaint();					 subG.add(name_).repaint();
+				
+				JLabel lastN = new JLabel("Last N:");   	 JTextArea lastN_ = new JTextArea();  		JLabel phone= new JLabel("Phone:");  JTextArea phone_ = new JTextArea();
+				lastN.setLayout(null);						 lastN_.setLayout(null); 					phone.setLayout(null);				 phone_.setLayout(null);
+				lastN.setBounds(150, 70, 40, 40);	 		 lastN_.setBounds(200, 75, 100, 30); 		phone.setBounds(340, 70, 40, 40);	 phone_.setBounds(390, 75, 100, 30);
+				subG.add(lastN).repaint();			 		 subG.add(lastN_).repaint(); 				subG.add(phone).repaint();			 subG.add(phone_).repaint();
+				
+				JLabel email = new JLabel("Email:"); 	  	 JTextArea email_ = new JTextArea();  		JLabel dat= new JLabel("Birthdate:");JTextArea dat_ = new JTextArea();
+				email.setLayout(null);						 email_.setLayout(null); 					dat.setLayout(null);				 dat_.setLayout(null);
+				email.setBounds(150, 130, 40, 40);	 		 email_.setBounds(200, 135, 100, 30); 		dat.setBounds(340, 130, 40, 40);	 dat_.setBounds(390, 135, 100, 30);
+				subG.add(email).repaint();			 		 subG.add(email_).repaint(); 				subG.add(dat).repaint();			 subG.add(dat_).repaint();
+				
+				JLabel address = new JLabel("Address:"); 	  	 JTextArea address_ = new JTextArea();  
+				address.setLayout(null);						 address_.setLayout(null); 					
+				address.setBounds(150, 190, 100, 40);	 		 address_.setBounds(250, 195, 240, 30); 	
+				subG.add(address).repaint();			 		 subG.add(address_).repaint(); 				
+				
+				JLabel person= new JLabel("Tel Emergency:");	 JTextArea person_ = new JTextArea();
+				person.setLayout(null);							 person_.setLayout(null);
+				person.setBounds(150, 250, 100, 40);		     person_.setBounds(250, 255, 240, 30);
+				subG.add(person).repaint();						 subG.add(person_).repaint();
+				
+				
 				
 				
 			}
