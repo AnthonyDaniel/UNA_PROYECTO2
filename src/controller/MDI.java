@@ -4,9 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -67,70 +71,111 @@ public class MDI extends MainGraphicInterface {
 		JButton b3 = new JButton("Modify");
 		JButton b4 = new JButton("Remove");
 		JButton b5 = new JButton("List");
+		JButton b6 = new JButton("Accept");
 
 		b1.setFont(font);
 		b2.setFont(font);
 		b3.setFont(font);
 		b4.setFont(font);
 		b5.setFont(font);
+		b6.setFont(font);
 		
 		b1.setBackground(Color.white);
 		b2.setBackground(Color.white);
 		b3.setBackground(Color.white);
 		b4.setBackground(Color.white);
 		b5.setBackground(Color.white);
-
+		b6.setBackground(Color.white);
+		
 		b1.setBounds(10, 10, 100, 40);
 		b2.setBounds(10, 70, 100, 40);
 		b3.setBounds(10, 130, 100, 40);
 		b4.setBounds(10, 190, 100, 40);
 		b5.setBounds(10, 250, 100, 40);
-	
+		b6.setBounds(210, 340, 100, 40);
+		
 		subG.add(b1);
 		subG.add(b2);
 		subG.add(b3);
 		subG.add(b4);
 		subG.add(b5);
+		subG.add(b6);
 		
 	
+
+		JLabel id = new JLabel("ID:");  	 		JTextArea id_ = new JTextArea();    		
+		id.setLayout(null);					 		id_.setLayout(null); 						
+		id.setBounds(150, 10, 40, 40);		 		id_.setBounds(200, 15, 100, 30); 			
+		subG.add(id).repaint();				 		subG.add(id_).repaint(); 				
+
+		JLabel name= new JLabel("Name:");  			 JTextArea name_ = new JTextArea();
+		name.setLayout(null);						 name_.setLayout(null);
+		name.setBounds(340, 10, 40, 40);			 name_.setBounds(390, 15, 100, 30);
+		subG.add(name).repaint();					 subG.add(name_).repaint();
+		
+		JLabel lastN = new JLabel("Last N:");   	 JTextArea lastN_ = new JTextArea();  		JLabel phone= new JLabel("Phone:");  JTextArea phone_ = new JTextArea();
+		lastN.setLayout(null);						 lastN_.setLayout(null); 					phone.setLayout(null);				 phone_.setLayout(null);
+		lastN.setBounds(150, 70, 40, 40);	 		 lastN_.setBounds(200, 75, 100, 30); 		phone.setBounds(340, 70, 40, 40);	 phone_.setBounds(390, 75, 100, 30);
+		subG.add(lastN).repaint();			 		 subG.add(lastN_).repaint(); 				subG.add(phone).repaint();			 subG.add(phone_).repaint();
+		
+		JLabel email = new JLabel("Email:"); 	  	 JTextArea email_ = new JTextArea();  		JLabel dat= new JLabel("Birthdate:");JTextArea dat_ = new JTextArea();
+		email.setLayout(null);						 email_.setLayout(null); 					dat.setLayout(null);				 dat_.setLayout(null);
+		email.setBounds(150, 130, 40, 40);	 		 email_.setBounds(200, 135, 100, 30); 		dat.setBounds(340, 130, 40, 40);	 dat_.setBounds(390, 135, 100, 30);
+		subG.add(email).repaint();			 		 subG.add(email_).repaint(); 				subG.add(dat).repaint();			 subG.add(dat_).repaint();
+		
+		JLabel address = new JLabel("Address:"); 	  	 JTextArea address_ = new JTextArea();  
+		address.setLayout(null);						 address_.setLayout(null); 					
+		address.setBounds(150, 190, 100, 40);	 		 address_.setBounds(250, 195, 240, 30); 	
+		subG.add(address).repaint();			 		 subG.add(address_).repaint(); 				
+		
+		JLabel person= new JLabel("Tel Emergency:");	 JTextArea person_ = new JTextArea();
+		person.setLayout(null);							 person_.setLayout(null);
+		person.setBounds(150, 250, 100, 40);		     person_.setBounds(250, 255, 240, 30);
+		subG.add(person).repaint();						 subG.add(person_).repaint();
+			
 		
 		b1.addActionListener(new ActionListener() {
 			
-			
 			public void actionPerformed(ActionEvent e) {
+		
+			b6.addActionListener(new ActionListener() {
+				
 			
-				JLabel id = new JLabel("ID:");  	 		JTextArea id_ = new JTextArea();    		
-				id.setLayout(null);					 		id_.setLayout(null); 						
-				id.setBounds(150, 10, 40, 40);		 		id_.setBounds(200, 15, 100, 30); 			
-				subG.add(id).repaint();				 		subG.add(id_).repaint(); 				
-
-				JLabel name= new JLabel("Name:");  			 JTextArea name_ = new JTextArea();
-				name.setLayout(null);						 name_.setLayout(null);
-				name.setBounds(340, 10, 40, 40);			 name_.setBounds(390, 15, 100, 30);
-				subG.add(name).repaint();					 subG.add(name_).repaint();
+				public void actionPerformed(ActionEvent e) {
 				
-				JLabel lastN = new JLabel("Last N:");   	 JTextArea lastN_ = new JTextArea();  		JLabel phone= new JLabel("Phone:");  JTextArea phone_ = new JTextArea();
-				lastN.setLayout(null);						 lastN_.setLayout(null); 					phone.setLayout(null);				 phone_.setLayout(null);
-				lastN.setBounds(150, 70, 40, 40);	 		 lastN_.setBounds(200, 75, 100, 30); 		phone.setBounds(340, 70, 40, 40);	 phone_.setBounds(390, 75, 100, 30);
-				subG.add(lastN).repaint();			 		 subG.add(lastN_).repaint(); 				subG.add(phone).repaint();			 subG.add(phone_).repaint();
-				
-				JLabel email = new JLabel("Email:"); 	  	 JTextArea email_ = new JTextArea();  		JLabel dat= new JLabel("Birthdate:");JTextArea dat_ = new JTextArea();
-				email.setLayout(null);						 email_.setLayout(null); 					dat.setLayout(null);				 dat_.setLayout(null);
-				email.setBounds(150, 130, 40, 40);	 		 email_.setBounds(200, 135, 100, 30); 		dat.setBounds(340, 130, 40, 40);	 dat_.setBounds(390, 135, 100, 30);
-				subG.add(email).repaint();			 		 subG.add(email_).repaint(); 				subG.add(dat).repaint();			 subG.add(dat_).repaint();
-				
-				JLabel address = new JLabel("Address:"); 	  	 JTextArea address_ = new JTextArea();  
-				address.setLayout(null);						 address_.setLayout(null); 					
-				address.setBounds(150, 190, 100, 40);	 		 address_.setBounds(250, 195, 240, 30); 	
-				subG.add(address).repaint();			 		 subG.add(address_).repaint(); 				
-				
-				JLabel person= new JLabel("Tel Emergency:");	 JTextArea person_ = new JTextArea();
-				person.setLayout(null);							 person_.setLayout(null);
-				person.setBounds(150, 250, 100, 40);		     person_.setBounds(250, 255, 240, 30);
-				subG.add(person).repaint();						 subG.add(person_).repaint();
-				
-				
-				
+					
+					if(!id_.getText().equals("") && !name_.getText().equals("") && !lastN_.getText().equals("") && !phone_.getText().equals("") && !email_.getText().equals("") && !dat_.getText().equals("") && !address_.getText().equals("") && !person_.getText().equals("")) {
+					
+						
+						aux.setId(id_.getText());
+						aux.setName(name_.getText());
+						aux.setLastName(lastN_.getText());
+						aux.setPhone(phone_.getText());
+						aux.setAddress(address_.getText());
+						aux.setEmail(email_.getText());
+						aux.setEmergencyPerson(person_.getText());
+						
+						Date _dat_ =null;
+						
+						try {
+						
+							_dat_ = new SimpleDateFormat ("dd/MM/yyyy").parse(dat_.getText());
+							aux.setDateBirth(_dat_);
+							client.add(aux);
+						} catch (ParseException ex) {
+							
+							JOptionPane.showMessageDialog(null, "Incorrect format example - dd/MM/yyyy ","Error with Date Birth", JOptionPane.ERROR_MESSAGE, null);
+							
+						}
+						
+					
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "Do not leave blank spaces", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					
+				}
+			});
 				
 			}
 		});
@@ -140,6 +185,14 @@ public class MDI extends MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent e) {
 			
+				b6.addActionListener(new ActionListener() {
+					
+					
+					public void actionPerformed(ActionEvent e) {
+					
+						
+					}
+				});
 				
 			}
 		});
@@ -149,6 +202,14 @@ public class MDI extends MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent e) {
 			
+				b6.addActionListener(new ActionListener() {
+					
+					
+					public void actionPerformed(ActionEvent e) {
+					
+						
+					}
+				});
 				
 			}
 		});
@@ -158,6 +219,14 @@ public class MDI extends MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent e) {
 			
+				b6.addActionListener(new ActionListener() {
+					
+					
+					public void actionPerformed(ActionEvent e) {
+					
+						
+					}
+				});
 				
 			}
 		});
@@ -167,6 +236,14 @@ public class MDI extends MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent e) {
 			
+				b6.addActionListener(new ActionListener() {
+					
+					
+					public void actionPerformed(ActionEvent e) {
+					
+						
+					}
+				});
 				
 			}
 		});
