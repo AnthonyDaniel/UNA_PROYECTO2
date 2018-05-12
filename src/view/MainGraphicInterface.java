@@ -22,27 +22,16 @@ public class MainGraphicInterface {
     private File imagenFile; // route 
     private Image newImagen; // icon of Jframe
 	private Font font; 
-	private JPanel subG;
-	private JPanel subG2;
-	private JPanel subG3;
-	private JPanel subG4;
-	private JPanel subG5;
-	private JPanel subG6;
+
     
 	public MainGraphicInterface() {
 		
 		imagenFile = new File("src/icon.PNG");
 		font = new Font("Calibri",9,13); 
-		subG = new JPanel();
-		subG2 = new JPanel();
-		subG3 = new JPanel();
-		subG4 = new JPanel();
-		subG5 = new JPanel();
-		subG6 = new JPanel();
-		
+	
 	}
 	
-	public void main() {
+	public void main(JPanel subG, JPanel subG2, JPanel subG3, JPanel subG4, JPanel subG5, JPanel subG6) {
 		
 		try {
 		
@@ -126,13 +115,15 @@ public class MainGraphicInterface {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
+			
 				
+				graphic.add(subG).repaint();
 				graphic.remove(subG2);
 				graphic.remove(subG3);	
 				graphic.remove(subG4);	
 				graphic.remove(subG5);	
-				graphic.remove(subG6);	
-				customerAdministration();
+				graphic.remove(subG6);
+			
 				
 				
 			}
@@ -144,12 +135,13 @@ public class MainGraphicInterface {
 			public void actionPerformed(ActionEvent arg0) {
 
 				
+				graphic.add(subG2).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG3);	
 				graphic.remove(subG4);	
 				graphic.remove(subG5);	
 				graphic.remove(subG6);		
-				medicalAdministration();
+		
 				
 				
 			}
@@ -160,12 +152,13 @@ public class MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
+				graphic.add(subG3).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG2);	
 				graphic.remove(subG4);	
 				graphic.remove(subG5);	
 				graphic.remove(subG6);	
-				medicalServicesAdministration();
+			
 				
 			}
 		});;
@@ -175,12 +168,13 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 				
+				graphic.add(subG4).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG2);	
 				graphic.remove(subG3);	
 				graphic.remove(subG5);	
 				graphic.remove(subG6);	
-				administrationScheduleAppointments();
+			
 				
 			}
 		});;
@@ -190,12 +184,13 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 				
+				graphic.add(subG5).repaint();
 				graphic.remove(subG);
 				graphic.remove(subG2);	
 				graphic.remove(subG3);	
 				graphic.remove(subG4);	
 				graphic.remove(subG6);	
-				serviceBilling();
+			
 				
 			}
 		});;
@@ -204,12 +199,14 @@ public class MainGraphicInterface {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
+				
+				graphic.add(subG6).repaint();
 				graphic.remove(subG2);
 				graphic.remove(subG3);	
 				graphic.remove(subG4);	
 				graphic.remove(subG5);	
 				graphic.remove(subG);	
-				about();
+				
 			}
 		});;
 		
@@ -229,483 +226,5 @@ public class MainGraphicInterface {
 
 		
 	}
-	
-	public void customerAdministration() {
-		
-		
-		subG.setLayout(null);
-		subG.setBackground(Color.GRAY);
-		subG.setBounds(320, 10, 515, 400);
-		
-		JButton b1 = new JButton("Add");
-		JButton b2 = new JButton("Search");
-		JButton b3 = new JButton("Modify");
-		JButton b4 = new JButton("Remove");
-		JButton b5 = new JButton("List");
 
-		b1.setFont(font);
-		b2.setFont(font);
-		b3.setFont(font);
-		b4.setFont(font);
-		b5.setFont(font);
-		
-		b1.setBackground(Color.white);
-		b2.setBackground(Color.white);
-		b3.setBackground(Color.white);
-		b4.setBackground(Color.white);
-		b5.setBackground(Color.white);
-
-		b1.setBounds(10, 10, 100, 40);
-		b2.setBounds(10, 70, 100, 40);
-		b3.setBounds(10, 130, 100, 40);
-		b4.setBounds(10, 190, 100, 40);
-		b5.setBounds(10, 250, 100, 40);
-	
-		subG.add(b1);
-		subG.add(b2);
-		subG.add(b3);
-		subG.add(b4);
-		subG.add(b5);
-		
-		b1.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-				
-			}
-		});
-		
-		b2.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b3.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b4.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b5.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		subG.setVisible(true);
-		
-		graphic.add(subG).repaint();
-		
-	
-	}
-	
-public void medicalAdministration() {
-	
-		subG2.setLayout(null);
-		subG2.setBackground(Color.GRAY);
-		subG2.setBounds(320, 10, 515, 400);
-		
-		JButton b1 = new JButton("Add");
-		JButton b2 = new JButton("Search");
-		JButton b3 = new JButton("Modify");
-		JButton b4 = new JButton("Remove");
-		JButton b5 = new JButton("List");
-	
-		b1.setFont(font);
-		b2.setFont(font);
-		b3.setFont(font);
-		b4.setFont(font);
-		b5.setFont(font);
-		
-		b1.setBackground(Color.white);
-		b2.setBackground(Color.white);
-		b3.setBackground(Color.white);
-		b4.setBackground(Color.white);
-		b5.setBackground(Color.white);
-
-		b1.setBounds(10, 10, 100, 40);
-		b2.setBounds(10, 70, 100, 40);
-		b3.setBounds(10, 130, 100, 40);
-		b4.setBounds(10, 190, 100, 40);
-		b5.setBounds(10, 250, 100, 40);
-	
-		
-		b1.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b2.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b3.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b4.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b5.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});	
-		
-		b1.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b2.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b3.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b4.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		b5.addActionListener(new ActionListener() {
-			
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			}
-		});
-		
-		subG2.add(b1);
-		subG2.add(b2);
-		subG2.add(b3);
-		subG2.add(b4);
-		subG2.add(b5);
-
-		subG2.setVisible(true);
-		
-		graphic.add(subG2).repaint();	
-		
-	}
-	
-	 public void medicalServicesAdministration() {
-		 
-		 	subG3.setLayout(null);
-			subG3.setBackground(Color.GRAY);
-			subG3.setBounds(320, 10, 515, 400);
-			
-			JButton b1 = new JButton("Add");
-			JButton b3 = new JButton("Modify");;
-			JButton b5 = new JButton("List");
-		
-			b1.setFont(font);
-			b3.setFont(font);
-			b5.setFont(font);
-			
-			b1.setBackground(Color.white);
-			b3.setBackground(Color.white);
-			b5.setBackground(Color.white);
-
-			b1.setBounds(10, 10, 100, 40);
-			b3.setBounds(10, 130, 100, 40);
-			b5.setBounds(10, 250, 100, 40);
-		
-			b1.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b3.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b5.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			subG3.add(b1);
-			subG3.add(b3);
-			subG3.add(b5);
-
-			subG3.setVisible(true);
-			
-			graphic.add(subG3).repaint();	
-		 
-		 
-	 }
-	 
-	 private void administrationScheduleAppointments() {
-		 	subG4.setLayout(null);
-			subG4.setBackground(Color.GRAY);
-			subG4.setBounds(320, 10, 515, 400);
-			
-			JButton b1 = new JButton("Developing");
-			JButton b2 = new JButton("Developing");
-			JButton b3 = new JButton("Developing");
-			JButton b4 = new JButton("Developing");
-			JButton b5 = new JButton("Developing");
-		
-
-			
-			b1.setFont(font);
-			b2.setFont(font);
-			b3.setFont(font);
-			b4.setFont(font);
-			b5.setFont(font);
-			
-			b1.setBackground(Color.white);
-			b2.setBackground(Color.white);
-			b3.setBackground(Color.white);
-			b4.setBackground(Color.white);
-			b5.setBackground(Color.white);
-
-			b1.setBounds(10, 10, 100, 40);
-			b2.setBounds(10, 70, 100, 40);
-			b3.setBounds(10, 130, 100, 40);
-			b4.setBounds(10, 190, 100, 40);
-			b5.setBounds(10, 250, 100, 40);
-		
-			b1.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b2.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b3.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b4.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b5.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			subG4.add(b1);
-			subG4.add(b2);
-			subG4.add(b3);
-			subG4.add(b4);
-			subG4.add(b5);
-
-			subG4.setVisible(true);
-			
-			graphic.add(subG4).repaint();	
-	 }
-	
-	 private void serviceBilling() {
-		 	subG5.setLayout(null);
-			subG5.setBackground(Color.GRAY);
-			subG5.setBounds(320, 10, 515, 400);
-			
-			JButton b1 = new JButton("Developing");
-			JButton b2 = new JButton("Developing");
-			JButton b3 = new JButton("Developing");
-			JButton b4 = new JButton("Developing");
-			JButton b5 = new JButton("Developing");
-		
-			b1.setFont(font);
-			b2.setFont(font);
-			b3.setFont(font);
-			b4.setFont(font);
-			b5.setFont(font);
-			
-			b1.setBackground(Color.white);
-			b2.setBackground(Color.white);
-			b3.setBackground(Color.white);
-			b4.setBackground(Color.white);
-			b5.setBackground(Color.white);
-
-			b1.setBounds(10, 10, 100, 40);
-			b2.setBounds(10, 70, 100, 40);
-			b3.setBounds(10, 130, 100, 40);
-			b4.setBounds(10, 190, 100, 40);
-			b5.setBounds(10, 250, 100, 40);
-
-			b1.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b2.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b3.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b4.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			b5.addActionListener(new ActionListener() {
-				
-				
-				public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-			});
-			
-			subG5.add(b1);
-			subG5.add(b2);
-			subG5.add(b3);
-			subG5.add(b4);
-			subG5.add(b5);
-
-			subG5.setVisible(true);
-			
-			graphic.add(subG5).repaint();	
-	 }
-	 
-	 private void about() {
-		 
-		 	subG6.setLayout(null);
-			subG6.setBackground(Color.white);
-			subG6.setBounds(320, 10, 515, 400);
-			
-			JLabel txt = new JLabel();
-			String txt_ = "Developed \n by Anthony Marin Bolivar and Erick Badilla"
-					+ "\n Version:1.3 DEVELOPINGGGGG";
-			txt.setText(txt_);
-			txt.setLayout(null);
-			txt.setBounds(10, 10, 400, 400);
-			
-			
-			subG6.add(txt);
-
-			subG6.setVisible(true);
-			
-			graphic.add(subG6).repaint();	
-		 
-		 
-	 }
-	 
 }
