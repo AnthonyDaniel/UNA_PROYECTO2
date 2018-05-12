@@ -41,6 +41,7 @@ public class MainGraphicInterface {
 		subG4 = new JPanel();
 		subG5 = new JPanel();
 		subG6 = new JPanel();
+		
 	}
 	
 	public void main() {
