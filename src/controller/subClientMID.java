@@ -43,7 +43,7 @@ public class subClientMID {
 	private JTextArea person_;
 	private JButton b1 ;
 	private JComboBox b2;
-	private JButton b3 ;
+	private JComboBox b3;
 	private JButton b4 ;
 	private JButton b5 ;
 	private int blankSpace; 
@@ -71,7 +71,7 @@ public class subClientMID {
 		person_ = new JTextArea();
 		b1 = new JButton("Add");	
 	    b2 = new JComboBox(new String[] {"Search", " "} );	
-		b3 = new JButton();	
+	    b3 = new JComboBox(new String[] {"Modify", " "} );	
 		b4 = new JButton();	
 		b5 = new JButton();
 		save = new JLabel();
@@ -93,7 +93,9 @@ public class subClientMID {
 		for(Client i: client.container()) {
 			b2.removeItem(i.getId());
 		}
-
+		for(Client i: client.container()) {
+			b3.removeItem(i.getId());
+		}
 		
 		
 		blankSpace = 1; 
@@ -152,9 +154,11 @@ public class subClientMID {
 		b2.setVisible(b2V);
 		
 		b3.setFont(font);
-		b3.setBackground(Color.white);
+		b3.setBackground(Color.WHITE);
 		b3.setBounds(150, 340, 100, 40);
+		b3.setEditable(true);
 		b3.setVisible(b3V);
+
 		
 		b4.setFont(font);
 		b4.setBackground(Color.white);
@@ -315,6 +319,87 @@ public class subClientMID {
 							b2.setAction(null);
 							
 					}
+			
+					aid.repaint();
+				}
+			});
+			
+			
+		return aid;
+	}
+
+	public JPanel clientModify() {
+
+		clean();
+	
+		template(false,false,true,false,false);
+
+		JButton bModify = new JButton("Modify");
+		bModify.setFont(font);
+		bModify.setBackground(Color.white);
+		bModify.setBounds(250, 340, 85, 40);
+
+		
+		
+		id_.setEditable(false);
+
+			if(!client.container().isEmpty()) {
+			
+				for(Client i :client.container() ) {
+			
+					b3.addItem(i.getId());
+			
+				}
+			}
+			
+			
+			b3.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent arg0) {
+					
+				Client aux = client.search((String) b3.getSelectedItem());
+					
+				 if(client.container().contains(aux)) {
+				
+						id_.setText(aux.getId());
+						name_.setText(aux.getName());
+						phone_.setText(aux.getPhone());
+						lastN_.setText(aux.getLastName());
+						email_.setText(aux.getEmail());		
+						dat_.setText("");
+						address_.setText(aux.getAddress());	
+						person_.setText(aux.getEmergencyPerson());
+
+						aid.add(bModify).repaint();
+						 
+						 bModify.addActionListener(new ActionListener() {
+							
+							public void actionPerformed(ActionEvent e) {
+								
+								if(client.modify(aux)) {
+									
+									save.setText("client modify");
+									aid.repaint();
+									
+							
+								}else {
+								
+									save.setText("client not modify");
+									aid.repaint();
+								
+								}
+								
+							}
+						});
+				
+						
+					}else if(b3.getSelectedItem().equals("Modify") || b3.getSelectedItem().equals(" ")) {
+						
+							b3.setAction(null);
+							
+					}
+				
 			
 					aid.repaint();
 				}

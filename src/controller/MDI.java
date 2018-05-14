@@ -119,6 +119,7 @@ public class MDI{
 
 			public void actionPerformed(ActionEvent e) {
 
+				subG.add(cMID.clientModify()).repaint();
 				b3.setEnabled(false);
 				b2.setEnabled(true);
 				b1.setEnabled(true);
