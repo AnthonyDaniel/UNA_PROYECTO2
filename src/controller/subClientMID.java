@@ -47,6 +47,7 @@ public class subClientMID {
 	private JButton b4 ;
 	private JButton b5 ;
 	private int blankSpace; 
+	private JLabel  save;
 	
 	public subClientMID () {
 		
@@ -69,10 +70,11 @@ public class subClientMID {
 		person = new JLabel("Tel Emergency:");
 		person_ = new JTextArea();
 		b1 = new JButton("Add");	
-	    b2 = new JComboBox(new String[] { "Search"});	
+	    b2 = new JComboBox(new String[] {"Search", " "} );	
 		b3 = new JButton();	
 		b4 = new JButton();	
 		b5 = new JButton();
+		save = new JLabel();
 		blankSpace = 1; 
 	}
 
@@ -86,12 +88,14 @@ public class subClientMID {
 		dat_.setText("12/12/2012");
 		address_.setText("");	
 		person_.setText("");
+		save.setText("");
 		
 		for(Client i: client.container()) {
-			b2.removeItem(i.getId());	
-			
+			b2.removeItem(i.getId());
 		}
 
+		
+		
 		blankSpace = 1; 
 	}
 	
@@ -133,6 +137,9 @@ public class subClientMID {
 		person_.setBounds(110, 255, 240, 30);
 		person_.setEditable(true);
 		
+		save.setBounds(10, 10, 40, 40);
+		save.setBounds(10, 340, 150, 40);
+	
 		b1.setFont(font);
 		b1.setBackground(Color.white);
 		b1.setBounds(150, 340, 100, 40);
@@ -141,6 +148,7 @@ public class subClientMID {
 		b2.setFont(font);
 		b2.setBackground(Color.WHITE);
 		b2.setBounds(150, 340, 100, 40);
+		b2.setEditable(true);
 		b2.setVisible(b2V);
 		
 		b3.setFont(font);
@@ -179,6 +187,7 @@ public class subClientMID {
 		aid.add(b3).repaint();
 		aid.add(b4).repaint();
 		aid.add(b5).repaint();
+		aid.add(save).repaint();
 		
 		
 		aid.repaint();
@@ -199,7 +208,7 @@ public class subClientMID {
 				if (!id_.getText().equals("") && !name_.getText().equals("") && !lastN_.getText().equals("")
 						&& !phone_.getText().equals("") && !email_.getText().equals("")
 						&& !dat_.getText().equals("") && !address_.getText().equals("")
-						&& !person_.getText().equals("")) {
+						&& !person_.getText().equals("") && !id_.getText().equals("In white")) {
 
 
 					try {
@@ -221,16 +230,20 @@ public class subClientMID {
 						c.setDateBirth(""+_dat_.getTime());
 
 						if(client.add(c)) {
-							clean();		
-							
-							aid.removeAll();
+			
+							clean();
+		
+							save.setText("Customer added");
+						
 							
 							aid.repaint();
+					
 							
-							JOptionPane.showMessageDialog(null, "Customer added");
-						}else  {
 							
-							JOptionPane.showMessageDialog(null, "The customer already exists");
+						}else {
+							
+							save.setText("Customer not added");
+							aid.repaint();
 						}
 
 
@@ -241,11 +254,10 @@ public class subClientMID {
 
 					}
 
-				} else if(blankSpace == 1) {
+				}else {
 					
-					blankSpace++;
-					JOptionPane.showMessageDialog(null, "Do not leave blank spaces", "Error",
-							JOptionPane.ERROR_MESSAGE);
+					save.setText("Without blank spaces");
+					aid.repaint();
 				}
 
 			}
@@ -259,12 +271,9 @@ public class subClientMID {
 
 	public JPanel clientSearch() {
 
-		
 		clean();
-		
+	
 		template(false,true, false , false , false);
-		
-
 
 		id_.setEditable(false);
 		name_.setEditable(false);
@@ -276,39 +285,22 @@ public class subClientMID {
 		person_.setEditable(false);
 		
 		
-			if(client.container().isEmpty()) {
-			
-				b2.addItem("There is nothing");
-			
-			}else {
+			if(!client.container().isEmpty()) {
 				for(Client i :client.container() ) {
 			
 					b2.addItem(i.getId());
 			
 				}
 			}
-	
 			b2.addActionListener(new ActionListener() {
 				
 				
 				public void actionPerformed(ActionEvent arg0) {
+				
+					Client aux = client.search((String) b2.getSelectedItem());		
 					
-			
-					if(b2.getSelectedItem().equals("There is nothing")) {
-						
-						id_.setText("There is nothing");
-						name_.setText("There is nothing");
-						phone_.setText("There is nothing");
-						lastN_.setText("There is nothing");
-						email_.setText("There is nothing");		
-						dat_.setText("00/00/0000");
-						address_.setText("There is nothing");	
-						person_.setText("There is nothing");
-						
-						
-					}else if(blankSpace == 1){
-					blankSpace++;
-						Client aux = client.search((String) b2.getSelectedItem());
+				 if(client.container().contains(aux)) {
+				
 						id_.setText(aux.getId());
 						name_.setText(aux.getName());
 						phone_.setText(aux.getPhone());
@@ -317,9 +309,13 @@ public class subClientMID {
 						dat_.setText("");
 						address_.setText(aux.getAddress());	
 						person_.setText(aux.getEmergencyPerson());
-				
+						
+					}else if(b2.getSelectedItem().equals("Search") || b2.getSelectedItem().equals(" ")) {
+						
+							b2.setAction(null);
+							
 					}
-					
+			
 					aid.repaint();
 				}
 			});

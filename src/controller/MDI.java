@@ -83,13 +83,14 @@ public class MDI{
 		subG.add(b4).repaint();
 		subG.add(b5).repaint();	
 		
-
+		subG.add(cMID.clientAdd()).repaint();
+		b1.setEnabled(false);
 		
 		b1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 
-				subG.add(cMID.clientAdd()).repaint();;
+				subG.add(cMID.clientAdd()).repaint();
 				b1.setEnabled(false);
 				b2.setEnabled(true);
 				b3.setEnabled(true);
@@ -103,7 +104,7 @@ public class MDI{
 		b2.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-		
+				
 				subG.add(cMID.clientSearch()).repaint();
 				b2.setEnabled(false);
 				b1.setEnabled(true);
