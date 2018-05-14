@@ -4,23 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
-import model.Client;
-import model.CustomerAdministration;
-import model.CustomerAdministrationInterface;
+import model.Client.Client;
 import view.MainGraphicInterface;
 
-public class MDI extends subMID{
+public class MDI extends subClientMID{
 
 
 	private MainGraphicInterface u = new MainGraphicInterface();
@@ -92,14 +83,14 @@ public class MDI extends subMID{
 		
 
 		JPanel addClient = this.clientAdd();
-		JPanel searchClient = this.clientSearch();
+		//JPanel searchClient = this.clientSearch();
 		
 		
 		
 		b1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				subG.remove(searchClient);
+			//	subG.remove(searchClient);
 				subG.add(addClient).repaint();
 
 		
@@ -111,7 +102,7 @@ public class MDI extends subMID{
 			public void actionPerformed(ActionEvent e) {
 		
 				subG.remove(addClient);
-				subG.add(searchClient).repaint();;
+			//	subG.add(searchClient).repaint();;
 				
 		
 			}

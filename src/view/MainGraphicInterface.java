@@ -27,7 +27,7 @@ public class MainGraphicInterface {
 	public MainGraphicInterface() {
 		
 		imagenFile = new File("src/icon.PNG");
-		font = new Font("Calibri",9,13); 
+		font = new Font("Times New Roman",12,13); 
 	
 	}
 	
