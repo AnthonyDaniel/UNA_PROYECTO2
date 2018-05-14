@@ -16,13 +16,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import controller.subClientMID;
+
 public class MainGraphicInterface {
 
 	private JFrame graphic = new JFrame();
     private File imagenFile; // route 
     private Image newImagen; // icon of Jframe
 	private Font font; 
-
     
 	public MainGraphicInterface() {
 		
@@ -123,7 +124,7 @@ public class MainGraphicInterface {
 				graphic.remove(subG4);	
 				graphic.remove(subG5);	
 				graphic.remove(subG6);
-			
+				
 				
 				
 			}

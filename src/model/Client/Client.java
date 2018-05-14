@@ -1,7 +1,6 @@
 package model.Client;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Client implements Serializable{
 
@@ -13,7 +12,7 @@ public class Client implements Serializable{
 	private String phone;
 	private String email;
 	private String address;
-	private Date dateBirth;
+	private String dateBirth;
 	
 	
 	public Client() {
@@ -91,12 +90,12 @@ public class Client implements Serializable{
 	}
 
 
-	public Date getDateBirth() {
+	public String getDateBirth() {
 		return dateBirth;
 	}
 
 
-	public void setDateBirth(Date dateBirth) {
+	public void setDateBirth(String dateBirth) {
 		this.dateBirth = dateBirth;
 	}
 	

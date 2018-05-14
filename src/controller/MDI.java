@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 import model.Client.Client;
 import view.MainGraphicInterface;
 
-public class MDI extends subClientMID{
+public class MDI{
 
-
+	private subClientMID cMID = new subClientMID();
 	private MainGraphicInterface u = new MainGraphicInterface();
 	private Font font;
 	private JPanel subG;
@@ -43,6 +43,8 @@ public class MDI extends subClientMID{
 
 	}
 
+
+	
 	public JPanel customerAdministration() {
 
 		Client aux = new Client();
@@ -82,18 +84,19 @@ public class MDI extends subClientMID{
 		subG.add(b5).repaint();	
 		
 
-		JPanel addClient = this.clientAdd();
-		//JPanel searchClient = this.clientSearch();
-		
-		
 		
 		b1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-			//	subG.remove(searchClient);
-				subG.add(addClient).repaint();
 
-		
+				subG.add(cMID.clientAdd()).repaint();;
+				b1.setEnabled(false);
+				b2.setEnabled(true);
+				b3.setEnabled(true);
+				b4.setEnabled(true);
+				b5.setEnabled(true);
+			
+				
 			}
 		});
 
@@ -101,10 +104,13 @@ public class MDI extends subClientMID{
 
 			public void actionPerformed(ActionEvent e) {
 		
-				subG.remove(addClient);
-			//	subG.add(searchClient).repaint();;
+				subG.add(cMID.clientSearch()).repaint();
+				b2.setEnabled(false);
+				b1.setEnabled(true);
+				b3.setEnabled(true);
+				b4.setEnabled(true);
+				b5.setEnabled(true);
 				
-		
 			}
 		});
 
@@ -112,7 +118,11 @@ public class MDI extends subClientMID{
 
 			public void actionPerformed(ActionEvent e) {
 
-		
+				b3.setEnabled(false);
+				b2.setEnabled(true);
+				b1.setEnabled(true);
+				b4.setEnabled(true);
+				b5.setEnabled(true);
 
 			}
 		});
@@ -121,7 +131,12 @@ public class MDI extends subClientMID{
 
 			public void actionPerformed(ActionEvent e) {
 
-
+				b4.setEnabled(false);
+				b2.setEnabled(true);
+				b3.setEnabled(true);
+				b1.setEnabled(true);
+				b5.setEnabled(true);
+				
 			}
 		});
 
@@ -129,7 +144,12 @@ public class MDI extends subClientMID{
 
 			public void actionPerformed(ActionEvent e) {
 			
-
+				b5.setEnabled(false);
+				b2.setEnabled(true);
+				b3.setEnabled(true);
+				b4.setEnabled(true);
+				b1.setEnabled(true);
+				
 			}
 		});
 
