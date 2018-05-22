@@ -7,23 +7,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-import controller.subClientMID;
+import controller.subClientMDI;
 
 public class MainGraphicInterface {
 
-	private JFrame graphic = new JFrame();
-    private File imagenFile; // route 
-    private Image newImagen; // icon of Jframe
+	
+	private subClientMDI subClient = new subClientMDI();
+	public JFrame graphic = new JFrame();
+    private File imagenFile; 
+    private Image newImagen; 
 	private Font font; 
+
+	
     
 	public MainGraphicInterface() {
 		
@@ -32,7 +32,7 @@ public class MainGraphicInterface {
 	
 	}
 	
-	public void main(JPanel subG, JPanel subG2, JPanel subG3, JPanel subG4, JPanel subG5, JPanel subG6) {
+	public void main() {
 		
 		try {
 		
@@ -44,14 +44,17 @@ public class MainGraphicInterface {
 			System.out.println("Error newImagen - setConImagen - ");
 		
 		}
-		
-		graphic.setTitle("Clinic");
+	
 		graphic.setResizable(false);
 		graphic.setLayout(null);
-		graphic.setSize(850, 450);
-		graphic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		graphic.setSize(450, 450);
+		graphic.setUndecorated(true); 
 		graphic.setLocationRelativeTo(null);
+		graphic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		JLabel title = new JLabel("Clinic");
+		JButton x = new JButton();
 		JButton b1 = new JButton("Customer Administration");
 		JButton b2 = new JButton("Medical Administration");
 		JButton b3 = new JButton("Medical Services Administration");
@@ -60,6 +63,7 @@ public class MainGraphicInterface {
 		JButton b6 = new JButton("About.....");
 		JButton b7 = new JButton("Get Out");
 		
+		title.setFont(new Font("Times New Roman",12,35));
 		b1.setFont(font);
 		b2.setFont(font);
 		b3.setFont(font);
@@ -68,6 +72,7 @@ public class MainGraphicInterface {
 		b6.setFont(font);
 		b7.setFont(font);
 		
+		x.setBackground(Color.white);
 		b1.setBackground(Color.white);
 		b2.setBackground(Color.white);
 		b3.setBackground(Color.white);
@@ -76,17 +81,22 @@ public class MainGraphicInterface {
 		b6.setBackground(Color.white);
 		b7.setBackground(Color.white);
 		
-		b1.setBounds(10, 10, 300, 40);
-		b2.setBounds(10, 70, 300, 40);
-		b3.setBounds(10, 130, 300, 40);
-		b4.setBounds(10, 190, 300, 40);
-		b5.setBounds(10, 250, 300, 40);
-		b6.setBounds(10, 310, 300, 40);
-		b7.setBounds(10, 370, 300, 40);
+		title.setBounds(180,28, 300, 40);
+		x.setBounds(430, 0, 20, 20);
+		b1.setBounds(70, 100, 300, 40);
+		b2.setBounds(70, 150, 300, 40);
+		b3.setBounds(70, 200, 300, 40);
+		b4.setBounds(70, 250, 300, 40);
+		b5.setBounds(70, 300, 300, 40);
+		b6.setBounds(70, 350, 300, 40);
+		b7.setBounds(70, 400, 300, 40);
 
+		x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
 		// b1.setOpaque(false);
 		// b2.setBorder(null);
 		
+		graphic.add(title);
+		graphic.add(x);
 		graphic.add(b1);
 		graphic.add(b2);
 		graphic.add(b3);
@@ -100,33 +110,18 @@ public class MainGraphicInterface {
 		background.setBounds(0, 0, 850, 450);
 		background.setIcon(icon);
 		graphic.add(background);
-	
-
-		
-		
-		
-		graphic.repaint();
 		graphic.setVisible(true);
+			
 
-		
-	
-		
 		
 		b1.addActionListener(new ActionListener() {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
-			
-				subG.setVisible(true);
-				graphic.add(subG).repaint();
-				graphic.remove(subG2);
-				graphic.remove(subG3);	
-				graphic.remove(subG4);	
-				graphic.remove(subG5);	
-				graphic.remove(subG6);
+
+				subClient.main(); 
 				
-				
-				
+
 			}
 		});;
 		
@@ -135,13 +130,6 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 
-				subG2.setVisible(true);
-				graphic.add(subG2).repaint();
-				graphic.remove(subG);
-				graphic.remove(subG3);	
-				graphic.remove(subG4);	
-				graphic.remove(subG5);	
-				graphic.remove(subG6);		
 		
 				
 				
@@ -152,15 +140,7 @@ public class MainGraphicInterface {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
-				
-				subG3.setVisible(true);
-				graphic.add(subG3).repaint();
-				graphic.remove(subG);
-				graphic.remove(subG2);	
-				graphic.remove(subG4);	
-				graphic.remove(subG5);	
-				graphic.remove(subG6);	
-			
+
 				
 			}
 		});;
@@ -169,14 +149,7 @@ public class MainGraphicInterface {
 			
 		
 			public void actionPerformed(ActionEvent arg0) {
-				
-				subG4.setVisible(true);
-				graphic.add(subG4).repaint();
-				graphic.remove(subG);
-				graphic.remove(subG2);	
-				graphic.remove(subG3);	
-				graphic.remove(subG5);	
-				graphic.remove(subG6);	
+
 			
 				
 			}
@@ -186,15 +159,7 @@ public class MainGraphicInterface {
 			
 		
 			public void actionPerformed(ActionEvent arg0) {
-				
-				subG5.setVisible(true);
-				graphic.add(subG5).repaint();
-				graphic.remove(subG);
-				graphic.remove(subG2);	
-				graphic.remove(subG3);	
-				graphic.remove(subG4);	
-				graphic.remove(subG6);	
-			
+
 				
 			}
 		});;
@@ -204,14 +169,7 @@ public class MainGraphicInterface {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
-				subG6.setVisible(true);
-				graphic.add(subG6).repaint();
-				graphic.remove(subG2);
-				graphic.remove(subG3);	
-				graphic.remove(subG4);	
-				graphic.remove(subG5);	
-				graphic.remove(subG);	
-				
+
 			}
 		});;
 		
@@ -219,16 +177,17 @@ public class MainGraphicInterface {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				JOptionPane.showMessageDialog( null,"Thanks for using our program");
 				System.exit(0);
-				
-				
 			}
 		});;
 
-
+		x.addActionListener(new ActionListener() {
+			
+	
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		
 	}
 
