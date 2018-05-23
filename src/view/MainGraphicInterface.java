@@ -13,11 +13,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import controller.subClientMDI;
+import controller.subDoctorMDI;
 
 public class MainGraphicInterface {
 
 	
 	private subClientMDI subClient = new subClientMDI();
+	private subDoctorMDI subDoctor = new subDoctorMDI();
 	public JFrame graphic = new JFrame();
     private File imagenFile; 
     private Image newImagen; 
@@ -130,7 +132,8 @@ public class MainGraphicInterface {
 		
 			public void actionPerformed(ActionEvent arg0) {
 
-		
+				
+				subDoctor.main();
 				
 				
 			}

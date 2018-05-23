@@ -1,7 +1,7 @@
 package model.Doctor;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 
 
@@ -14,7 +14,7 @@ public class Doctor  implements Serializable {
 	private String phone;
 	private String email;
 	private String address;
-	private Date dateBirth;
+	private String dateBirth;
 	
 	public Doctor() {
 		super();
@@ -76,11 +76,11 @@ public class Doctor  implements Serializable {
 		this.address = address;
 	}
 
-	public Date getDateBirth() {
+	public String getDateBirth() {
 		return dateBirth;
 	}
 
-	public void setDateBirth(Date dateBirth) {
+	public void setDateBirth(String dateBirth) {
 		this.dateBirth = dateBirth;
 	}
 

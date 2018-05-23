@@ -21,13 +21,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import model.Client.Client;
 import model.Client.CustomerAdministration;
 import model.Client.CustomerAdministrationInterface;
+import model.Doctor.Doctor;
+import model.Doctor.MedicalAdministration;
 
-public class subClientMDI {
+public class subDoctorMDI {
 
-	private CustomerAdministrationInterface client = new CustomerAdministration();
+	private  MedicalAdministration doctor = new  MedicalAdministration();
 	private Font font;
 	private JLabel id;
 	private JTextArea id_;
@@ -43,8 +44,8 @@ public class subClientMDI {
 	private JTextArea dat_;
 	private JLabel address;
 	private JTextArea address_;
-	private JLabel person;
-	private JTextArea person_;
+	private JLabel specialty;
+	private JTextArea specialty_;
 	private JFormattedTextField jd1;
 	private JButton b1;
 	private JComboBox b2;
@@ -54,7 +55,7 @@ public class subClientMDI {
 	private JLabel save;
 	private File imagenFile;
 	private Image newImagen;
-	private JFrame ClientG;
+	private JFrame DoctorG;
 	private JFrame aid;
 	private JFrame aid2;
 	private JFrame aid3;
@@ -64,15 +65,14 @@ public class subClientMDI {
 
 
 
-	public subClientMDI() {
+	public subDoctorMDI() {
 
-		ClientG = new JFrame();
+		DoctorG = new JFrame();
 		aid = new JFrame();
 		aid2 = new JFrame();
 		aid3 = new JFrame();
 		aid4 = new JFrame();
 
-		jd1 = new JFormattedTextField();
 		imagenFile = new File("src/icon.PNG");
 		font = new Font("Times New Roman", 12, 13);
 		id = new JLabel("ID:");
@@ -89,8 +89,9 @@ public class subClientMDI {
 		dat_ = new JTextArea("12/12/2012");
 		address = new JLabel("Address:");
 		address_ = new JTextArea();
-		person = new JLabel("Tel Emergency:");
-		person_ = new JTextArea();
+		specialty = new JLabel("Specialty:");
+		specialty_ = new JTextArea();
+		jd1 = new javax.swing.JFormattedTextField();
 		b1 = new JButton("Add");
 		b2 = new JComboBox(new String[] { "Search"});
 		b3 = new JComboBox(new String[] { "Modify"});
@@ -104,7 +105,7 @@ public class subClientMDI {
 		try {
 
 			newImagen = ImageIO.read(imagenFile);
-			ClientG.setIconImage(newImagen);
+			DoctorG.setIconImage(newImagen);
 
 		} catch (IOException e) {
 
@@ -112,12 +113,12 @@ public class subClientMDI {
 
 		}
 
-		ClientG.setResizable(false);
-		ClientG.setLayout(null);
-		ClientG.setSize(450, 450);
-		ClientG.setUndecorated(true);
-		ClientG.setLocationRelativeTo(null);
-		ClientG.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		DoctorG.setResizable(false);
+		DoctorG.setLayout(null);
+		DoctorG.setSize(450, 450);
+		DoctorG.setUndecorated(true);
+		DoctorG.setLocationRelativeTo(null);
+		DoctorG.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JLabel title = new JLabel("Customer Administration");
 		JButton x = new JButton();
@@ -136,6 +137,8 @@ public class subClientMDI {
 		b5.setFont(font);
 		b6.setFont(font);
 
+		Doctor i;
+		
 		x.setBackground(Color.white);
 		b1.setBackground(Color.white);
 		b2.setBackground(Color.white);
@@ -158,28 +161,28 @@ public class subClientMDI {
 		// b1.setOpaque(false);
 		// b2.setBorder(null);
 
-		ClientG.add(title);
-		ClientG.add(x);
-		ClientG.add(b1);
-		ClientG.add(b2);
-		ClientG.add(b3);
-		ClientG.add(b4);
-		ClientG.add(b5);
-		ClientG.add(b6);
+		DoctorG.add(title);
+		DoctorG.add(x);
+		DoctorG.add(b1);
+		DoctorG.add(b2);
+		DoctorG.add(b3);
+		DoctorG.add(b4);
+		DoctorG.add(b5);
+		DoctorG.add(b6);
 
 		JLabel background = new JLabel();
 		ImageIcon icon = new ImageIcon("src/fondo.png");
 		background.setBounds(0, 0, 850, 450);
 		background.setIcon(icon);
-		ClientG.add(background);
-		ClientG.setVisible(true);
+		DoctorG.add(background);
+		DoctorG.setVisible(true);
 
 		b1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 
 				add();
-				ClientG.setVisible(false);
+				DoctorG.setVisible(false);
 
 			}
 		});
@@ -189,7 +192,7 @@ public class subClientMDI {
 			public void actionPerformed(ActionEvent arg0) {
 
 				modify();
-				ClientG.setVisible(false);
+				DoctorG.setVisible(false);
 		
 
 			}
@@ -200,7 +203,7 @@ public class subClientMDI {
 			public void actionPerformed(ActionEvent e) {
 				
 				search();
-				ClientG.setVisible(false);
+				DoctorG.setVisible(false);
 				
 				
 			}
@@ -211,7 +214,7 @@ public class subClientMDI {
 			public void actionPerformed(ActionEvent e) {
 	
 				remove();
-				ClientG.setVisible(false);
+				DoctorG.setVisible(false);
 				
 			}
 		});
@@ -231,7 +234,7 @@ public class subClientMDI {
 
 			public void actionPerformed(ActionEvent arg0) {
 
-				ClientG.dispose();
+				DoctorG.dispose();
 
 			}
 		});
@@ -240,7 +243,7 @@ public class subClientMDI {
 
 			public void actionPerformed(ActionEvent e) {
 
-				ClientG.dispose();
+				DoctorG.dispose();
 
 			}
 		});
@@ -256,11 +259,10 @@ public class subClientMDI {
 		email_.setText("");
 		dat_.setText("");
 		address_.setText("");
-		person_.setText("");
+		specialty_.setText("");
 		save.setText("");
 		jd1.setText("");
 		
-		jd1.setEditable(true);
 		id_.setEditable(true);
 		name_.setEditable(true);
 		phone_.setEditable(true);
@@ -268,21 +270,21 @@ public class subClientMDI {
 		email_.setEditable(true);
 		dat_.setEditable(true);
 		address_.setEditable(true);
-		person_.setEditable(true);
+		specialty_.setEditable(true);
 
-		for (Client i : client.container()) {
+		for (Doctor i : doctor.container()) {
 			b2.removeItem(i.getId());
 		}
-		for (Client i : client.container()) {
+		for (Doctor i : doctor.container()) {
 			b3.removeItem(i.getId());
 		}
 		
+		jd1.setText("");
+
 	}
 
 	public void template() {
-		
-	
-		
+
 		id.setBounds(30, 10, 50, 40);
 		id_.setBounds(90, 15, 100, 30);
 		id_.setEditable(true);
@@ -311,9 +313,9 @@ public class subClientMDI {
 		address_.setBounds(140, 195, 240, 30);
 		address_.setEditable(true);
 
-		person.setBounds(30, 250, 100, 40);
-		person_.setBounds(140, 255, 240, 30);
-		person_.setEditable(true);
+		specialty.setBounds(30, 250, 100, 40);
+		specialty_.setBounds(140, 255, 240, 30);
+		specialty_.setEditable(true);
 		
 		try {
 			jd1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -326,7 +328,7 @@ public class subClientMDI {
 	}
 
 	public void add() {
-	
+
 		template();
 
 		
@@ -359,7 +361,7 @@ public class subClientMDI {
 		b1.setBackground(Color.white);
 		b1.setBounds(330, 400, 100, 40);
 		b1.setVisible(true);
-
+		
 		aid.add(id).repaint();
 		aid.add(name).repaint();
 		aid.add(name_).repaint();
@@ -372,14 +374,14 @@ public class subClientMDI {
 		aid.add(dat).repaint();
 		aid.add(address).repaint();
 		aid.add(address_).repaint();
-		aid.add(person).repaint();
-		aid.add(person_).repaint();
+		aid.add(specialty).repaint();
+		aid.add(specialty_).repaint();
 		aid.add(id_).repaint();
 		aid.add(b1).repaint();
 		aid.add(x).repaint();
 		aid.add(save).repaint();
-		aid.add(jd1).repaint();
 		
+		aid.add(jd1).repaint();;
 		
 		aid.setVisible(true);
 
@@ -388,14 +390,13 @@ public class subClientMDI {
 			public void actionPerformed(ActionEvent e) {
 
 				save.setText("");
-				
-				
+
 				if (!id_.getText().equals("") && !name_.getText().equals("") && !lastN_.getText().equals("")
 						&& !phone_.getText().equals("") && !email_.getText().equals("") && !jd1.getText().equals("")
-						&& !address_.getText().equals("") && !person_.getText().equals("")) {
+						&& !address_.getText().equals("") && !specialty_.getText().equals("")) {
 
 
-						Client c = new Client();
+						Doctor c = new Doctor();
 
 						c.setId(id_.getText());
 						c.setName(name_.getText());
@@ -403,15 +404,15 @@ public class subClientMDI {
 						c.setPhone(phone_.getText());
 						c.setAddress(address_.getText());
 						c.setEmail(email_.getText());
-						c.setEmergencyPerson(person_.getText());
+						c.setSpecialty(specialty_.getText());
 						c.setDateBirth(jd1.getText());
 
-						if (client.add(c)) {
+						if (doctor.add(c)) {
 
 							clean();
 
-							ClientG.setVisible(true);
-						
+							DoctorG.setVisible(true);
+
 							aid.dispose();
 
 						} else {
@@ -436,7 +437,7 @@ public class subClientMDI {
 
 				clean();
 
-				ClientG.setVisible(true);
+				DoctorG.setVisible(true);
 
 				aid.dispose();
 
@@ -484,8 +485,7 @@ public class subClientMDI {
 		email_.setEditable(false);
 		dat_.setEditable(false);
 		address_.setEditable(false);
-		person_.setEditable(false);
-		
+		specialty_.setEditable(false);
 	
 		aid2.add(id).repaint();
 		aid2.add(name).repaint();
@@ -500,14 +500,14 @@ public class subClientMDI {
 		aid2.add(dat_).repaint();
 		aid2.add(address).repaint();
 		aid2.add(address_).repaint();
-		aid2.add(person).repaint();
-		aid2.add(person_).repaint();
+		aid2.add(specialty).repaint();
+		aid2.add(specialty_).repaint();
 		aid2.add(id_).repaint();
 		aid2.add(b2).repaint();
 		aid2.add(x).repaint();
 		aid2.setVisible(true);
 
-		for(Client i: client.container()) {
+		for(Doctor i: doctor.container()) {
 			
 			b2.addItem(i.getId());
 			
@@ -518,7 +518,7 @@ public class subClientMDI {
 			public void actionPerformed(ActionEvent e) {
 
 				
-				for(Client i: client.container()) {
+				for(Doctor i: doctor.container()) {
 					
 					if(b2.getSelectedItem().equals(i.getId())) {
 						
@@ -530,7 +530,7 @@ public class subClientMDI {
 						email_.setText(i.getEmail());
 						dat_.setText(i.getDateBirth());
 						address_.setText(i.getAddress());
-						person_.setText(i.getEmergencyPerson());
+						specialty_.setText(i.getDateBirth());
 						
 						
 						
@@ -549,7 +549,7 @@ public class subClientMDI {
 
 				clean();
 
-				ClientG.setVisible(true);
+				DoctorG.setVisible(true);
 
 				aid2.dispose();
 
@@ -598,7 +598,7 @@ private void modify() {
 		moodify.setBackground(Color.white);
 		
 		save.setBounds(30, 340, 300, 40);
-		
+	
 		aid3.add(id).repaint();
 		aid3.add(name).repaint();
 		aid3.add(name_).repaint();
@@ -611,8 +611,8 @@ private void modify() {
 		aid3.add(dat).repaint();
 		aid3.add(address).repaint();
 		aid3.add(address_).repaint();
-		aid3.add(person).repaint();
-		aid3.add(person_).repaint();
+		aid3.add(specialty).repaint();
+		aid3.add(specialty_).repaint();
 		aid3.add(id_).repaint();
 		aid3.add(b3).repaint();
 		aid3.add(moodify).repaint();
@@ -621,7 +621,7 @@ private void modify() {
 		aid3.add(jd1);
 		aid3.setVisible(true);
 
-		for(Client i: client.container()) {
+		for(Doctor i: doctor.container()) {
 			
 			b3.addItem(i.getId());
 			
@@ -633,22 +633,22 @@ private void modify() {
 			
 				if (!id_.getText().equals("") && !name_.getText().equals("") && !lastN_.getText().equals("")
 						&& !phone_.getText().equals("") && !email_.getText().equals("") && !jd1.getText().equals("")
-						&& !address_.getText().equals("") && !person_.getText().equals("")) {
+						&& !address_.getText().equals("") && !specialty_.getText().equals("")) {
 
 				
 
-						Client i = new Client(); 
+						Doctor i = new Doctor(); 
 						
 						i.setName(name_.getText());
 						i.setId(id_.getText());
 						i.setAddress(address_.getText());
 						i.setDateBirth(jd1.getText());
 						i.setEmail(email_.getText());
-						i.setEmergencyPerson(person_.getText());
+						i.setSpecialty(specialty_.getText());
 						i.setPhone(phone_.getText());
 						i.setLastName(lastN_.getText());
 					
-						if(client.modify(i)) {
+						if(doctor.modify(i)) {
 							
 							save.setText("Modified");
 							
@@ -674,7 +674,7 @@ private void modify() {
 			public void actionPerformed(ActionEvent e) {
 
 				
-				for(Client i: client.container()) {
+				for(Doctor i: doctor.container()) {
 					
 					if(b3.getSelectedItem().equals(i.getId())) {
 						
@@ -685,7 +685,7 @@ private void modify() {
 						email_.setText(i.getEmail());
 						jd1.setText(i.getDateBirth());
 						address_.setText(i.getAddress());
-						person_.setText(i.getEmergencyPerson());
+						specialty_.setText(i.getSpecialty());
 						
 					}
 					
@@ -703,7 +703,7 @@ private void modify() {
 
 				clean();
 
-				ClientG.setVisible(true);
+				DoctorG.setVisible(true);
 
 				aid3.dispose();
 
@@ -752,7 +752,7 @@ private void remove() {
 	email_.setEditable(false);
 	dat_.setEditable(false);
 	address_.setEditable(false);
-	person_.setEditable(false);
+	specialty_.setEditable(false);
 	
 	JButton remoove = new JButton("Remove");
 	remoove.setBounds(260, 390, 100, 40);
@@ -774,8 +774,8 @@ private void remove() {
 	aid4.add(dat_).repaint();
 	aid4.add(address).repaint();
 	aid4.add(address_).repaint();
-	aid4.add(person).repaint();
-	aid4.add(person_).repaint();
+	aid4.add(specialty).repaint();
+	aid4.add(specialty_).repaint();
 	aid4.add(id_).repaint();
 	aid4.add(b4).repaint();
 	aid4.add(remoove).repaint();
@@ -783,13 +783,13 @@ private void remove() {
 	aid4.add(save).repaint();
 	aid4.setVisible(true);
 	
-	for(Client i: client.container()) {
+	for(Doctor i: doctor.container()) {
 		
 		b4.removeItem(i.getId());
 		
 	}
 	
-	for(Client i: client.container()) {
+	for(Doctor i: doctor.container()) {
 		
 		b4.addItem(i.getId());
 		
@@ -799,7 +799,7 @@ private void remove() {
 	
 		public void actionPerformed(ActionEvent arg0) {
 		
-			if(client.remove(""+ b4.getSelectedItem())) {
+			if(doctor.remove(""+ b4.getSelectedItem())) {
 			
 				save.setText("Removed");
 			
@@ -823,7 +823,7 @@ private void remove() {
 		public void actionPerformed(ActionEvent e) {
 
 			
-			for(Client i: client.container()) {
+			for(Doctor i: doctor.container()) {
 				
 				if(b4.getSelectedItem().equals(i.getId())) {
 					
@@ -834,7 +834,7 @@ private void remove() {
 					email_.setText(i.getEmail());
 					dat_.setText(i.getDateBirth());
 					address_.setText(i.getAddress());
-					person_.setText(i.getEmergencyPerson());
+					specialty_.setText(i.getSpecialty());
 					
 				}
 				
@@ -852,7 +852,7 @@ private void remove() {
 
 			clean();
 
-			ClientG.setVisible(true);
+			DoctorG.setVisible(true);
 
 			aid4.dispose();
 
@@ -866,7 +866,7 @@ public void list() {
 
 	jt.setText(null);
 
-	for(Client i : client.container()) {
+	for(Doctor i : doctor.container()) {
 		
 		jt.append("----------------------------------------------------------------------------------------------------------- \n "
 				+ "Id: " + i.getId() + " \n \n"
@@ -875,7 +875,7 @@ public void list() {
 				+ "Date Birth " + i.getDateBirth()+ " \n \n"
 				+ "Phone: " + i.getPhone() + " \n \n"
 				+ "Email: " + i.getEmail() + " \n  \n"
-				+ "Phone Emergency: " + i.getEmergencyPerson() + " \n \n"
+				+ "Specialty: " + i.getSpecialty() + " \n \n"
 				+ "Address: " + i.getAddress()+ " \n \n");
 		
 		
