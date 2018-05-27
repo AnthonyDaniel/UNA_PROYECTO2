@@ -29,7 +29,7 @@ public class MainGraphicInterface {
     
 	public MainGraphicInterface() {
 		
-		imagenFile = new File("src/icon.PNG");
+		imagenFile = new File("src/icon.png");
 		font = new Font("Times New Roman",12,13); 
 	
 	}
@@ -93,7 +93,7 @@ public class MainGraphicInterface {
 		b6.setBounds(70, 350, 300, 40);
 		b7.setBounds(70, 400, 300, 40);
 
-		x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
+		x.setIcon(new ImageIcon(getClass().getResource("/X.png")));
 		// b1.setOpaque(false);
 		// b2.setBorder(null);
 		

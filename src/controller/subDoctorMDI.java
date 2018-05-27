@@ -73,7 +73,7 @@ public class subDoctorMDI {
 		aid3 = new JFrame();
 		aid4 = new JFrame();
 
-		imagenFile = new File("src/icon.PNG");
+		imagenFile = new File("src/icon.png");
 		font = new Font("Times New Roman", 12, 13);
 		id = new JLabel("ID:");
 		id_ = new JTextArea();
@@ -156,7 +156,7 @@ public class subDoctorMDI {
 		b5.setBounds(70, 310, 300, 40);
 		b6.setBounds(70, 370, 300, 40);
 
-		x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
+		x.setIcon(new ImageIcon(getClass().getResource("/X.png")));
 
 		// b1.setOpaque(false);
 		// b2.setBorder(null);
@@ -355,7 +355,7 @@ public class subDoctorMDI {
 		JButton x = new JButton();
 		x.setBackground(Color.white);
 		x.setBounds(430, 0, 20, 20);
-		x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
+		x.setIcon(new ImageIcon(getClass().getResource("/X.png")));
 
 		b1.setFont(font);
 		b1.setBackground(Color.white);
@@ -471,7 +471,7 @@ public class subDoctorMDI {
 		JButton x = new JButton();
 		x.setBackground(Color.white);
 		x.setBounds(430, 0, 20, 20);
-		x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
+		x.setIcon(new ImageIcon(getClass().getResource("/X.png")));
 
 		b2.setFont(font);
 		b2.setBackground(Color.white);
@@ -584,7 +584,7 @@ private void modify() {
 		JButton x = new JButton();
 		x.setBackground(Color.white);
 		x.setBounds(430, 0, 20, 20);
-		x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
+		x.setIcon(new ImageIcon(getClass().getResource("/X.png")));
 
 		b3.setFont(font);
 		b3.setBackground(Color.white);
@@ -738,7 +738,7 @@ private void remove() {
 	JButton x = new JButton();
 	x.setBackground(Color.white);
 	x.setBounds(430, 0, 20, 20);
-	x.setIcon(new ImageIcon(getClass().getResource("/X.PNG")));
+	x.setIcon(new ImageIcon(getClass().getResource("/X.png")));
 
 	b4.setFont(font);
 	b4.setBackground(Color.white);
