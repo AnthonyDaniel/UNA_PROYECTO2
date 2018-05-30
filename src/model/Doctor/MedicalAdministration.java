@@ -136,16 +136,7 @@ public class MedicalAdministration extends MedicalAdministrationFile implements 
 
 	public ArrayList<Doctor> container() {
 		
-		if(!cDoctor.isEmpty()) {
 			return cDoctor;
-		}else {
-			return null;
-		}
-		
-	}
 
-	
-	
-	
-	
+	}
 }

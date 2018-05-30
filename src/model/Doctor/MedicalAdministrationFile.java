@@ -63,13 +63,15 @@ public class MedicalAdministrationFile {
 				
 				entry.close();
 			}
-		return listD;
+		
 		
 		}catch(IOException|ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "there is an error in reading");	
-		return null;
+			
+	
 		
 		}
+		
+		return listD;
 	}
 	
 }

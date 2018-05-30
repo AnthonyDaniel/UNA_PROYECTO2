@@ -1,6 +1,7 @@
 package model.Client;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Client implements Serializable{
 

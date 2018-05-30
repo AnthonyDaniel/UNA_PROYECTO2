@@ -65,7 +65,8 @@ public class CustomerAdministrationFile {
 		
 		
 		}catch(IOException|ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "There is an error in reading or there is nothing in memory", "Client-There is an unforeseen", JOptionPane.WARNING_MESSAGE);
+		
+			//	JOptionPane.showMessageDialog(null, "There is an error in reading or there is nothing in memory", "Client-There is an unforeseen", JOptionPane.WARNING_MESSAGE);
 		
 		
 		}
