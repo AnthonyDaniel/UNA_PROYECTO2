@@ -9,9 +9,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import modelo.adaptador.adaptadorXML;
+import modelo.adaptador.AdaptadorXML;
 
-public class clienteContenedor extends adaptadorXML implements ICliente {
+public class clienteContenedor extends AdaptadorXML implements ICliente {
 
 	private Element telEmer;
 	private Element id;

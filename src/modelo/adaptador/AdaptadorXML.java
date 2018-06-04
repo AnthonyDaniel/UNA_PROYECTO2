@@ -14,11 +14,11 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 
-public class adaptadorXML {
+public class AdaptadorXML {
 
 	protected String url;
 	
-	public adaptadorXML(String entidad) throws Exception{
+	public AdaptadorXML(String entidad) throws Exception{
 		
 		url = entidad+"XML.xml";
 		

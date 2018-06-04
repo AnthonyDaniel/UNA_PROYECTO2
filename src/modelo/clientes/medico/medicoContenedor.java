@@ -9,10 +9,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import modelo.adaptador.adaptadorXML;
+import modelo.adaptador.AdaptadorXML;
 import modelo.clientes.clienteEntity;
 
-public class medicoContenedor extends adaptadorXML implements IMedico {
+public class medicoContenedor extends AdaptadorXML implements IMedico {
 
 	private Element especialidad;
 	private Element id;
