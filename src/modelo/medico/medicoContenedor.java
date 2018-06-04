@@ -1,4 +1,4 @@
-package modelo.clientes.medico;
+package modelo.medico;
 
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
@@ -198,7 +198,7 @@ public class medicoContenedor extends AdaptadorXML implements IMedico {
 				direccion.appendChild(documento.createTextNode(cli.getDireccion()));
 				fecha.appendChild(documento.createTextNode(cli.getFecha()));
 				
-			    nodoRaiz = documento.getElementsByTagName("Medico");
+			    nodoRaiz = documento.getElementsByTagName("Medicos");
 				nodoRaiz.item(0).appendChild(medico);
 				
 				medico.appendChild(id);

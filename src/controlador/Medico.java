@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import modelo.clientes.clienteEntity;
-import modelo.clientes.medico.IMedico;
-import modelo.clientes.medico.medicoContenedor;
-import modelo.clientes.medico.medicoEntity;
+import modelo.medico.IMedico;
+import modelo.medico.medicoContenedor;
+import modelo.medico.medicoEntity;
 
 public class Medico {
 

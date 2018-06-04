@@ -1,4 +1,4 @@
-package modelo.clientes.medico;
+package modelo.medico;
 
 public class medicoEntity {
 

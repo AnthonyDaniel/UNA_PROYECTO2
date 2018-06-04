@@ -1,4 +1,4 @@
-package modelo.clientes.medico;
+package modelo.medico;
 
 import modelo.clientes.clienteEntity;
 
