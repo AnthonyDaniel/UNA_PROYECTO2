@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><xml><Clientes><Cliente><ID>1</ID><Nombre>eqweqw</Nombre><Apellidos>qweqwe</Apellidos><Tel>eqwe</Tel><Email>3123123</Email><TelEmergencias/><Direccion>312312</Direccion><Fecha>01/23/1231</Fecha></Cliente><Cliente><ID>604550257</ID><Nombre>Anthony</Nombre><Apellidos>Marín</Apellidos><Tel>84314444</Tel><Email>anthonymmaribolivar@gmail.com</Email><TelEmergencias>83124312</TelEmergencias><Direccion>En cañas guanacaste</Direccion><Fecha>11/09/1999</Fecha></Cliente><Cliente><ID>504250570</ID><Nombre>Erick</Nombre><Apellidos>Badilla</Apellidos><Tel>72072289</Tel><Email>rvoltpwn@gmail.com</Email><TelEmergencias>72072289</TelEmergencias><Direccion>Condo el Sitio</Direccion><Fecha>01/13/1999</Fecha></Cliente></Clientes></xml>
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xml><Clientes/></xml>
+>>>>>>> 41aeecc96c33d070ae610ceaa17f785bec806084
