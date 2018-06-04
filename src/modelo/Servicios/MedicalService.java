@@ -1,4 +1,4 @@
-package model.Services;
+package modelo.Servicios;
 
 
 public class MedicalService {
