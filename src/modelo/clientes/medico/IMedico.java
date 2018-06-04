@@ -10,6 +10,6 @@ public interface IMedico {
 	
 	public boolean modificar(medicoEntity cli) throws Exception;
 	
-	public boolean eliminar(medicoEntity cli) throws Exception;
+	public boolean eliminar(String id) throws Exception;
 	
 }

@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import modelo.clientes.clienteEntity;
 import modelo.clientes.medico.IMedico;
 import modelo.clientes.medico.medicoContenedor;
 import modelo.clientes.medico.medicoEntity;
@@ -192,7 +193,7 @@ public class Medico {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(!id_.getText().equals("") && !nombre_.getText().equals("") && !apel_.getText().equals("") && !tel_.getText().equals("") 
-				&& !especialidad.getText().equals("") && !email_.getText().equals("") && !direc_.getText().equals("") && !fecha.getText().equals("00/00/0000")) {
+				&& !especialidad.getText().equals("") && !email_.getText().equals("") && !direc_.getText().equals("") && !fecha_.getText().equals("00/00/0000")) {
 					
 					medicoEntity cE = new medicoEntity();
 					
@@ -313,23 +314,48 @@ public class Medico {
 		modificarC.setBounds(230, 350,100, 40);
 		
 		ClF.add(modificarC).repaint();
-		
+
 		modificarC.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				medicoEntity i = new medicoEntity();
+				if(!id_.getText().equals("") && !nombre_.getText().equals("") && !apel_.getText().equals("") && !tel_.getText().equals("") 
+						&& !especialidad_.getText().equals("") && !email_.getText().equals("") && !direc_.getText().equals("") && !fecha_.getText().equals("00/00/0000")) {
 				
-				i.setId("12345678");
+				medicoEntity cE = new medicoEntity();
+				
+				cE.setId(id_.getText());
+				cE.setNombre(nombre_.getText());
+				cE.setApellidos(apel_.getText());
+				cE.setFecha(fecha_.getText());
+				cE.setEmail(email_.getText());
+				cE.setTel(tel_.getText());
+				cE.setEspecialidad(especialidad_.getText());
+				cE.setDireccion(direc_.getText());
+
 				
 				try {
 					
-					cli.modificar(i);
+					if(cli.modificar(cE)) {
+				
+						JOptionPane.showMessageDialog(null, "Modificado correctamente");
+						
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "No modificado");
+						
+					}
 					
 				} catch (Exception e1) {
 				
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Error-Modulo modificar");
 				
+				}
+				
+				}else {
+					
+					JOptionPane.showMessageDialog(null, "No dejar espacios en blanco");
 				}
 				
 			}
@@ -341,7 +367,7 @@ public class Medico {
 		limpiar();
 		
 		plantilla();
-		
+
 		agregarC.setEnabled(false);
 		buscarC.setEnabled(false);
 		modificarC.setEnabled(false);
@@ -349,13 +375,37 @@ public class Medico {
 
 		eliminarC.setBounds(340, 350,100, 40);
 		
-	
 		ClF.add(eliminarC).repaint();
-		
+
+		id_.setEditable(true);
+		nombre_.setEditable(false);
+		apel_.setEditable(false);
+		tel_.setEditable(false);
+		fecha_.setEditable(false);
+		especialidad_.setEditable(false);
+		email_.setEditable(false);
+		direc_.setEditable(false);
+
 		eliminarC.addActionListener(new ActionListener() {
 	
 			public void actionPerformed(ActionEvent e) {
-
+				
+				if(!id_.equals("")) {
+					
+					try {
+						if(cli.eliminar(id_.getText())) {
+							JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+							limpiar();
+						}else {
+							JOptionPane.showMessageDialog(null, "No Eliminado");
+						}
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, "Existe un error-Modulo Eliminar");
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Por llenar el espacio de la cedula");
+				}
 				
 			}
 		});

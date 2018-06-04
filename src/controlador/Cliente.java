@@ -123,15 +123,11 @@ public class Cliente {
 			JOptionPane.showMessageDialog(null, "Error al cargar los archivos");
 			
 		}
-		
 
-		
-		
 	}
-	
-	
+
 	private void close(){
-        if (JOptionPane.showConfirmDialog(ClF, "¿Desea realmente salir?", "Salir del sistema", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {     	
+        if (JOptionPane.showConfirmDialog(ClF, "¿Desea realmente volver?", "Salir del sistema", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {     	
         	ClF.dispose();
         	main i = new main();
         	i.main(null);
@@ -202,7 +198,7 @@ public class Cliente {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(!id_.getText().equals("") && !nombre_.getText().equals("") && !apel_.getText().equals("") && !tel_.getText().equals("") 
-				&& !telE.getText().equals("") && !email_.getText().equals("") && !direc_.getText().equals("") && !fecha.getText().equals("00/00/0000")) {
+				&& !telE.getText().equals("") && !email_.getText().equals("") && !direc_.getText().equals("") && !fecha_.getText().equals("00/00/0000")) {
 					
 					clienteEntity cE = new clienteEntity();
 					
@@ -316,7 +312,6 @@ public class Cliente {
 		
 		plantilla();
 		
-		
 		agregarC.setEnabled(false);
 		buscarC.setEnabled(false);
 		modificarC.setEnabled(true);
@@ -324,24 +319,47 @@ public class Cliente {
 		
 		modificarC.setBounds(230, 350,100, 40);
 
-		
-		
 		modificarC.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				clienteEntity i = new clienteEntity();
+				if(!id_.getText().equals("") && !nombre_.getText().equals("") && !apel_.getText().equals("") && !tel_.getText().equals("") 
+						&& !telE.getText().equals("") && !email_.getText().equals("") && !direc_.getText().equals("") && !fecha_.getText().equals("00/00/0000")) {
 				
-				i.setId("12345678");
+				clienteEntity cE = new clienteEntity();
+				
+				cE.setId(id_.getText());
+				cE.setNombre(nombre_.getText());
+				cE.setApellidos(apel_.getText());
+				cE.setFecha(fecha_.getText());
+				cE.setEmail(email_.getText());
+				cE.setTel(tel_.getText());
+				cE.setTelEmer(telE_.getText());
+				cE.setDireccion(direc_.getText());
+
 				
 				try {
 					
-					cli.modificar(i);
+					if(cli.modificar(cE)) {
+				
+						JOptionPane.showMessageDialog(null, "Modificado correctamente");
+						
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "No modificado");
+						
+					}
 					
 				} catch (Exception e1) {
 				
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Error-Modulo modificar");
 				
+				}
+				
+				}else {
+					
+					JOptionPane.showMessageDialog(null, "No dejar espacios en blanco");
 				}
 				
 			}

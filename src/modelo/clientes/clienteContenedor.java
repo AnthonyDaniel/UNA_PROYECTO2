@@ -161,9 +161,68 @@ public class clienteContenedor extends adaptadorXML implements ICliente {
 	
 	public boolean modificar(clienteEntity cli) throws Exception {
 		
-	boolean modificado = false;
-	
-		return modificado;
+		boolean modificado = false;
+
+		DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
+		
+		DocumentBuilder constructor = fabrica.newDocumentBuilder();
+		
+		Document documento = constructor.parse(url);
+		
+		documento.getDocumentElement().normalize();
+		
+		NodeList nodoRaiz = documento.getDocumentElement().getElementsByTagName("Cliente");
+		
+		for(int i = 0; i<nodoRaiz.getLength(); i++) {
+			
+			if(nodoRaiz.item(i).getChildNodes().item(0).getTextContent().equals(cli.getId())) {
+
+				 nodoRaiz.item(i).getParentNode().removeChild(nodoRaiz.item(i));
+				
+				cliente = documento.createElement("Cliente");
+				id = documento.createElement("ID");
+				nombre = documento.createElement("Nombre");
+				apellidos = documento.createElement("Apellidos");
+				tel = documento.createElement("Tel");
+				email = documento.createElement("Email");
+				telEmer = documento.createElement("TelEmergencias");
+				direccion = documento.createElement("Direccion");
+				fecha = documento.createElement("Fecha");
+				
+				id.appendChild(documento.createTextNode(cli.getId()));
+				nombre.appendChild(documento.createTextNode(cli.getNombre()));
+				apellidos.appendChild(documento.createTextNode(cli.getApellidos()));
+				tel.appendChild(documento.createTextNode(cli.getTel()));
+				email.appendChild(documento.createTextNode(cli.getEmail()));
+				telEmer.appendChild(documento.createTextNode(cli.getTelEmer()));
+				direccion.appendChild(documento.createTextNode(cli.getDireccion()));
+				fecha.appendChild(documento.createTextNode(cli.getFecha()));
+				
+			    nodoRaiz = documento.getElementsByTagName("Clientes");
+				nodoRaiz.item(0).appendChild(cliente);
+				
+				cliente.appendChild(id);
+				cliente.appendChild(nombre);
+				cliente.appendChild(apellidos);
+				cliente.appendChild(tel);
+				cliente.appendChild(email);
+				cliente.appendChild(telEmer);
+				cliente.appendChild(direccion);
+				cliente.appendChild(fecha);
+				
+				this.generarXML(documento);
+				
+		
+				   this.generarXML(documento);
+				
+				modificado = true;
+		
+			}
+			
+		}
+
+		
+			return modificado;
 	}
 	public boolean eliminar(String ced) throws Exception {
 
