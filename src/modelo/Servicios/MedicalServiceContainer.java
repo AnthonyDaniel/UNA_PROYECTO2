@@ -6,7 +6,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class MedicalServiceContainer extends MedicalServiceAdapter implements MedicalServicesInterface{
+import modelo.adaptador.AdaptadorXML;
+
+public class MedicalServiceContainer extends AdaptadorXML implements MedicalServicesInterface{
 	private Element cod;
 	private Element desc;
 	private Element price;
