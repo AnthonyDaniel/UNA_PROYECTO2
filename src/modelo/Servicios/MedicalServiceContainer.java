@@ -152,12 +152,58 @@ DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
 			
 		}
 		
-		 
-		JOptionPane.showMessageDialog(null, "No se encontró concidencias");
 		return servCombo;
 		
 	
 		
+	}
+
+	@Override
+	public boolean editNode(MedicalService service) throws Exception {
+		boolean modified = false;
+
+		DocumentBuilderFactory fabric = DocumentBuilderFactory.newInstance();
+		
+		DocumentBuilder constructor = fabric.newDocumentBuilder();
+		
+		Document document = constructor.parse(url);
+		
+		document.getDocumentElement().normalize();
+		
+		NodeList rootNode = document.getDocumentElement().getElementsByTagName("Service");
+		
+		for(int i = 0; i< rootNode.getLength(); i++) {
+			
+			if(rootNode.item(i).getChildNodes().item(0).getTextContent().equals(service.getCod())) {
+
+				 rootNode.item(i).getParentNode().removeChild(rootNode.item(i));
+					
+				    medService = document.createElement("Service");
+			        cod = document.createElement("Code");
+			        desc = document.createElement("Description");
+			        price = document.createElement("Price");
+			        
+			        cod.appendChild(document.createTextNode(service.getCod()));
+			        desc.appendChild(document.createTextNode(service.getDesc()));
+			        price.appendChild(document.createTextNode(String.valueOf(service.getPrice())));
+			        
+			        rootNode = document.getElementsByTagName("Service");
+					rootNode.item(0).appendChild(medService);
+				
+			        medService.appendChild(cod);
+			        medService.appendChild(desc);
+			        medService.appendChild(price);
+				
+				this.generarXML(document);
+			
+				modified = true;
+		
+			}
+			
+		}
+
+		
+			return modified;
 	}
 
 }

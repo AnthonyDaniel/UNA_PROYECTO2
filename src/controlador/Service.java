@@ -32,7 +32,7 @@ public class Service {
 	JTextField textPrice;
 	
 	JButton add;
-	JButton search;
+	JButton modify;
 	JButton display;
 	JButton back;
 	
@@ -49,7 +49,7 @@ public class Service {
 		textPrice = new JTextField();
 		
 		add = new JButton("Agregar");
-		search =  new JButton("Buscar");
+		modify =  new JButton("Modificar");
 		display = new JButton("Mostrar");
 		back = new JButton("Volver"); 
 		
@@ -101,7 +101,7 @@ public class Service {
 	
 	public void template () {
 
-		serviceFrame.setVisible(true);
+
 		
 		id.setBounds(10, 10, 80, 40);        	 textID.setBounds(100, 10, 120, 40);
 		price.setBounds(230, 10, 80, 40);       textPrice.setBounds(320, 10, 120, 40);  
@@ -111,8 +111,16 @@ public class Service {
 		textID.setEditable(true);
 		textDesc.setEditable(true);
 		textPrice.setEditable(true);
-	
 		serviceFrame.setVisible(true);
+		
+		serviceFrame.add(id);
+		serviceFrame.add(price);
+		serviceFrame.add(desc);
+		serviceFrame.add(textID);
+		serviceFrame.add(textDesc);
+		serviceFrame.add(textPrice);
+	
+	
 		
 	}
 	
@@ -129,7 +137,7 @@ public class Service {
 		add.setBounds(10, 350, 100, 40);
 		back.setBounds(120, 350, 100, 40);
 		add.setEnabled(true);
-		search.setEnabled(false);
+		modify.setEnabled(false);
 		display.setEnabled(false);
 		back.setEnabled(true);
 		
@@ -180,24 +188,84 @@ public class Service {
 		});
 	}
 	
-	public void buscar(String ID) {
+	public void modificar() {
+		clean();
+		template();
+		
+		modify.setBounds(10, 350, 100, 40);
+		back.setBounds(120, 350, 100, 40);
+		add.setEnabled(false);
+		modify.setEnabled(true);
+		display.setEnabled(false);
+		back.setEnabled(true);
+		
+		serviceFrame.add(modify).repaint();
+		serviceFrame.add(back).repaint();
+		
+		modify.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!textID.getText().equals("") && !textDesc.getText().equals("") && !textPrice.getText().equals("")) {
+					MedicalService serv = new MedicalService();
+					
+					serv.setCod(textID.getText());
+					serv.setDesc(textDesc.getText());
+					serv.setPrice(Double.valueOf(textPrice.getText()));
+					
+					try {
+						if(serviceInterface.editNode(serv)) {
+							clean();
+							JOptionPane.showMessageDialog(null, "Se ha modificado", "Alerta", 0);
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "No se ha modificado", "Error", 0);
+						}
+					} catch(Exception ex) {
+						JOptionPane.showMessageDialog(null, "Existe un error\n" + ex, "Error", 0);
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "No se pueden dejar espacios en blanco!", "Error", 0);
+				}
+				
+			}
+			
+		});
+		
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				serviceFrame.dispose();
+				Controlador con = new Controlador();
+				con.serviciosModulo();
+				
+			}
+			
+		});
+	
+	}
+	
+	void buscar(String ID) {
 		clean();
 		
 		desc.setBounds(10, 70, 80, 40);        
 		textDesc.setBounds(100, 70, 340, 40);
 		price.setBounds(10, 120, 80, 40);
-		textPrice.setBounds(100, 120, 100, 40);
+		textPrice.setBounds(100, 120, 120, 40);
 		
 		textDesc.setEditable(false);
 		textPrice.setEditable(false);
 		
-		search.setEnabled(false);
+		modify.setEnabled(false);
 		add.setEnabled(false);
 		display.setEnabled(true);
 		back.setEnabled(true);
 		
-		serviceFrame.add(search).repaint();
+		serviceFrame.add(display).repaint();
 		serviceFrame.add(back).repaint();
+		serviceFrame.setVisible(true);
 		
 		try {
 			MedicalService serv = serviceInterface.searchNode(ID);
@@ -224,13 +292,10 @@ public class Service {
 
 		serviceFrame.add(servCombo).repaint();
 		serviceFrame.setVisible(true);
-		
-//		ID = servCombo.getSelectedItem().toString();
-//		buscar(ID);
 
 		
 		add.setEnabled(false);
-		search.setEnabled(false);
+		modify.setEnabled(false);
 		display.setEnabled(true);
 		
 		display.setBounds(10, 350, 100, 40);

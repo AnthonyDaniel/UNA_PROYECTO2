@@ -232,17 +232,17 @@ public class Controlador {
 		servFrame.setLayout(null);
 		
 		JButton add = new JButton("Agregar");
-		JButton search = new JButton("Buscar");
+		JButton modify = new JButton("Modificar");
 		JButton display = new JButton("Mostrar");
 		JButton back = new JButton("Volver");
 		
 		add.setBounds(115, 40, 200, 40);
-		search.setBounds(115, 90, 200, 40);
+		modify.setBounds(115, 90, 200, 40);
 		display.setBounds(115, 140, 200, 40);
 		back.setBounds(115, 190, 200, 40);
 		
 		servFrame.add(add).repaint();
-		servFrame.add(search).repaint();
+		servFrame.add(modify).repaint();
 		servFrame.add(display).repaint();
 		servFrame.add(back).repaint();
 		
@@ -272,11 +272,11 @@ public class Controlador {
 			}
 		});
 		
-		search.addActionListener(new ActionListener() {
+		modify.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 	
-				serv.buscar(null);
+				serv.modificar();
 				servFrame.dispose();
 			}
 		});
