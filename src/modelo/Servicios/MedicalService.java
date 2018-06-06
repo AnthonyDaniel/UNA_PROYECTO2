@@ -37,6 +37,7 @@ public class MedicalService {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 	
 	
 

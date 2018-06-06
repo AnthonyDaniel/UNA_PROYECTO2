@@ -10,6 +10,6 @@ public interface MedicalServicesInterface {
     // metodo visualizar
     
     
-    public void vizualizar() throws Exception;
+    public void display() throws Exception;
     
 }

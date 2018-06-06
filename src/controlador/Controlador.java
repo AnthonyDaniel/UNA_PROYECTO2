@@ -7,21 +7,25 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import modelo.Servicios.MedicalService;
 import vista.interfazG;
 
-public class controlador {
+public class Controlador {
 	
 	private interfazG i = new interfazG(); 
 	private Cliente c = new Cliente();
     private Medico m = new Medico();
+    private Service serv = new Service();
 	
 	private JFrame cl;
 	private JFrame cm;
+	private JFrame servFrame;
 	
-	public controlador() {
+	public Controlador() {
 		
 		cl = new JFrame();
 		cm = new JFrame();
+		servFrame = new JFrame();
 		
 		
 		clienteBotn();
@@ -127,7 +131,7 @@ public class controlador {
 		
 		
 		cl.setLocationRelativeTo(null);
-		cl.setVisible(true);
+
 		
 		
 		
@@ -218,10 +222,91 @@ public class controlador {
 		
 		
 		cm.setLocationRelativeTo(null);
-		cm.setVisible(true);
+	
 
 	}
-	private void serviciosModulo() {
+	
+	public void serviciosModulo() {
+		servFrame.setTitle("Servicios");
+		servFrame.setSize(450, 450);
+		servFrame.setLayout(null);
+		
+		JButton add = new JButton("Agregar");
+		JButton search = new JButton("Buscar");
+		JButton display = new JButton("Mostrar");
+		JButton back = new JButton("Volver");
+		
+		add.setBounds(115, 40, 200, 40);
+		search.setBounds(115, 90, 200, 40);
+		display.setBounds(115, 140, 200, 40);
+		back.setBounds(115, 190, 200, 40);
+		
+		servFrame.add(add).repaint();
+		servFrame.add(search).repaint();
+		servFrame.add(display).repaint();
+		servFrame.add(back).repaint();
+		
+		servFrame.setVisible(true);
+		
+		servFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		
+		
+		servFrame.addWindowListener(new java.awt.event.WindowAdapter(){
+			public void windowClosing(java.awt.event.WindowEvent evt) {
+				 if (JOptionPane.showConfirmDialog(cm, "¿Desea realmente salir?", "Salir del sistema", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {     	
+			        	cm.dispose();
+			        	main i = new main();
+			        	i.main(null);
+			  
+			        }
+	            }
+				
+		});
+		
+		add.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+	
+				serv.agregar();
+				servFrame.dispose();
+			}
+		});
+		
+		search.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+	
+				serv.buscar();
+				servFrame.dispose();
+			}
+		});
+		
+		display.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+	
+				serv.display();
+				servFrame.dispose();
+			}
+		});
+		
+		back.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+	
+				servFrame.dispose();
+	        	main i = new main();
+	        	i.main(null);
+	  
+			
+			}
+		});
+		
+		
+		servFrame.setLocationRelativeTo(null);
+	
+		
+		
 		
 	}
 	private void citasModulo() {
@@ -237,7 +322,7 @@ public class controlador {
 		i.cliente.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				
+				cl.setVisible(true);
 				clienteModulo();
 				i.g.dispose();
 				
@@ -249,7 +334,7 @@ public class controlador {
 		i.medicos.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				
+				cm.setVisible(true);
 				medicoModulo();
 				i.g.dispose();
 			}
@@ -257,7 +342,16 @@ public class controlador {
 		
 	}
 	private void serviciosBotn() {
-		
+		i.servicios.addActionListener(new ActionListener() {
+
+			
+			public void actionPerformed(ActionEvent event) {
+				servFrame.setVisible(true);
+				serviciosModulo();
+				i.g.dispose();
+			}
+			
+		});
 	}
 	private void citasBotn() {
 		

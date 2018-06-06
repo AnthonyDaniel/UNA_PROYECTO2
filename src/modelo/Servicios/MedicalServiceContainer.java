@@ -16,7 +16,7 @@ public class MedicalServiceContainer extends AdaptadorXML implements MedicalServ
 	private Element desc;
 	private Element price;
 	private Element medService;
-	public JComboBox serv = new JComboBox( new String [] { "seleccionar "});
+	public JComboBox servCombo = new JComboBox( new String [] { "seleccionar "});
 
 	public MedicalServiceContainer() throws Exception {
 		super("Services");
@@ -25,19 +25,19 @@ public class MedicalServiceContainer extends AdaptadorXML implements MedicalServ
 public boolean exist(String id) throws Exception {
 	boolean exist = false;
 	
-	DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
+	DocumentBuilderFactory fabric = DocumentBuilderFactory.newInstance();
 	
-	DocumentBuilder constructor = fabrica.newDocumentBuilder();
+	DocumentBuilder constructor = fabric.newDocumentBuilder();
 	
-	Document documento = constructor.parse(url);
+	Document document = constructor.parse(url);
 	
-	documento.getDocumentElement().normalize();
+	document.getDocumentElement().normalize();
 	
-	NodeList nodoRaiz = documento.getDocumentElement().getElementsByTagName("Services");
+	NodeList rootNode = document.getDocumentElement().getElementsByTagName("Service");
 	
-	for(int i = 0; i<nodoRaiz.getLength(); i++) {
+	for(int i = 0; i < rootNode.getLength(); i++) {
 		
-		if(nodoRaiz.item(i).getChildNodes().item(0).getTextContent().equals(id)) {
+		if(rootNode.item(i).getChildNodes().item(0).getTextContent().equals(id)) {
 			
 			exist = true;
 	
@@ -45,14 +45,14 @@ public boolean exist(String id) throws Exception {
 		
 	}
 
-	
 	return exist;
+	
 	}
 
 	@Override
 	public boolean addNode(MedicalService service) throws Exception {
 		
-		if(exist(service.cod)) {
+		if(exist(service.getCod())) {
 			return false;
 		}
 		else {
@@ -90,14 +90,17 @@ public boolean exist(String id) throws Exception {
         DocumentBuilder constructor= fabric.newDocumentBuilder();
         Document document = constructor.parse(url);
         document.getDocumentElement().normalize();        
-        NodeList rootNode = document.getDocumentElement().getElementsByTagName("Services");
+        NodeList rootNode = document.getDocumentElement().getElementsByTagName("Service");
         
         for(int i = 0; i < rootNode.getLength(); i++) {
-        	if(rootNode.item(i).getChildNodes().item(0).equals(cod)) {
+        	if(rootNode.item(i).getChildNodes().item(0).getTextContent().equals(id)) {
         		MedicalService serv = new MedicalService();
             	serv.setCod(rootNode.item(i).getChildNodes().item(0).getTextContent());
             	serv.setDesc(rootNode.item(i).getChildNodes().item(1).getTextContent());
             	serv.setPrice(Double.valueOf(rootNode.item(i).getChildNodes().item(2).getTextContent()));
+            	
+            	JOptionPane.showMessageDialog(null, "Se econtraron coicidencias!", "Mensaje", 0);
+            	return serv;
         	}
         }
 		return null;
@@ -122,24 +125,24 @@ public boolean exist(String id) throws Exception {
 	}
 
 	@Override
-	public void vizualizar() throws Exception {
+	public void display() throws Exception {
 DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
 		
 		DocumentBuilder constructor = fabrica.newDocumentBuilder();
 		
-		Document documento = constructor.parse(url);
+		Document document = constructor.parse(url);
 		
-		documento.getDocumentElement().normalize();
+		document.getDocumentElement().normalize();
 		
-		NodeList nodoRaiz = documento.getDocumentElement().getElementsByTagName("Service");
+		NodeList rootNode = document.getDocumentElement().getElementsByTagName("Service");
 		
 		
 		
-		for(int i = 0; i<nodoRaiz.getLength(); i++) {
+		for(int i = 0; i < rootNode.getLength(); i++) {
 			
 			
 				
-				serv.addItem(nodoRaiz.item(i).getChildNodes().item(0).getTextContent());
+				servCombo.addItem(rootNode.item(i).getChildNodes().item(0).getTextContent());
 			
 			
 			

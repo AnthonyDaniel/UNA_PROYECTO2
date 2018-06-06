@@ -15,7 +15,7 @@ public class interfazG {
 	public JButton salir;
 	
 	public interfazG(){
-		cliente = new JButton("CLientes");
+		cliente = new JButton("Clientes");
 		medicos = new JButton("Medicos");
 		servicios = new JButton("Servicios");
 		citas = new JButton("Citas");
