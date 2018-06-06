@@ -276,7 +276,7 @@ public class Controlador {
 
 			public void actionPerformed(ActionEvent e) {
 	
-				serv.buscar();
+				serv.buscar(null);
 				servFrame.dispose();
 			}
 		});

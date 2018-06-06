@@ -1,5 +1,8 @@
 package modelo.Servicios;
 
+import java.awt.Component;
+
+import javax.swing.JComboBox;
 
 public interface MedicalServicesInterface {
 	public boolean addNode(MedicalService service) throws Exception;
@@ -10,6 +13,6 @@ public interface MedicalServicesInterface {
     // metodo visualizar
     
     
-    public void display() throws Exception;
+    public JComboBox display() throws Exception;
     
 }

@@ -1,6 +1,9 @@
 package modelo.Servicios;
 
+import java.awt.Component;
+
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -125,7 +128,7 @@ public boolean exist(String id) throws Exception {
 	}
 
 	@Override
-	public void display() throws Exception {
+	public JComboBox display() throws Exception {
 DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
 		
 		DocumentBuilder constructor = fabrica.newDocumentBuilder();
@@ -143,12 +146,15 @@ DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
 			
 				
 				servCombo.addItem(rootNode.item(i).getChildNodes().item(0).getTextContent());
+				
 			
 			
 			
 		}
+		
 		 
 		JOptionPane.showMessageDialog(null, "No se encontró concidencias");
+		return servCombo;
 		
 	
 		

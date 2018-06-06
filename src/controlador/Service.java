@@ -1,12 +1,14 @@
 package controlador;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -34,6 +36,8 @@ public class Service {
 	JButton display;
 	JButton back;
 	
+	JComboBox servCombo;
+	
 	public Service() {
 		
 		id = new JLabel("ID:");
@@ -48,6 +52,8 @@ public class Service {
 		search =  new JButton("Buscar");
 		display = new JButton("Mostrar");
 		back = new JButton("Volver"); 
+		
+		servCombo = new JComboBox();
 		
 		
 		try {
@@ -174,62 +180,54 @@ public class Service {
 		});
 	}
 	
-	public void buscar() {
+	public void buscar(String ID) {
 		clean();
-		template();
+		
+		desc.setBounds(10, 70, 80, 40);        
+		textDesc.setBounds(100, 70, 340, 40);
+		price.setBounds(10, 120, 80, 40);
+		textPrice.setBounds(100, 120, 100, 40);
+		
 		textDesc.setEditable(false);
 		textPrice.setEditable(false);
-		search.setBounds(10, 350, 100, 40);
-		back.setBounds(120, 350, 100, 40);
 		
-		search.setEnabled(true);
+		search.setEnabled(false);
 		add.setEnabled(false);
-		display.setEnabled(false);
+		display.setEnabled(true);
 		back.setEnabled(true);
 		
 		serviceFrame.add(search).repaint();
 		serviceFrame.add(back).repaint();
 		
-		search.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(!textID.getText().equals("")) {
-					try {
-						MedicalService serv = serviceInterface.searchNode(textID.getText());
-						
-						textDesc.setText(serv.getDesc());
-						textPrice.setText(String.valueOf(serv.getPrice()));
-						
-					} catch (Exception e1) {
-						JOptionPane.showMessageDialog(null, "No se encontro el servicio" + e1, "Error", JOptionPane.ERROR_MESSAGE);
-					}
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "No se encontro servicio", "Error", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			}
+		try {
+			MedicalService serv = serviceInterface.searchNode(ID);
 			
-		});
+			textDesc.setText(serv.getDesc());
+			textPrice.setText(String.valueOf(serv.getPrice()));
+			
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(null, "No se encontro el servicio" + e1, "Error", JOptionPane.ERROR_MESSAGE);
+		}
 		
-		back.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				serviceFrame.dispose();
-				Controlador con = new Controlador();
-				con.serviciosModulo();
-				
-			}
-			
-		});
 		
 	}
 	
 	public void display() {
 		clean();
-		template();
+		try {
+			servCombo = serviceInterface.display();
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(null, "Hubo algun error", "Error", 1);
+			e1.printStackTrace();
+		}
+		servCombo.setBounds(0, 10, 450, 70);
+
+		serviceFrame.add(servCombo).repaint();
+		serviceFrame.setVisible(true);
+		
+//		ID = servCombo.getSelectedItem().toString();
+//		buscar(ID);
+
 		
 		add.setEnabled(false);
 		search.setEnabled(false);
@@ -245,7 +243,9 @@ public class Service {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				String ID = null;
+				ID = servCombo.getSelectedItem().toString();
+				buscar(ID);
 				
 			}
 			
